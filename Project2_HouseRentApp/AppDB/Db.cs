@@ -37,5 +37,9 @@ namespace HouseRentApp.AppDB
 
         }
 
+        internal Task SaveChangesAsync()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

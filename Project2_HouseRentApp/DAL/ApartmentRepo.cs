@@ -4,8 +4,7 @@ using HouseRentApp.DTOs;
 using HouseRentApp.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-
-
+using Microsoft.EntityFrameworkCore;
 
 namespace HouseRentApp.DAL
 {
