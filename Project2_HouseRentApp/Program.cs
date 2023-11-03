@@ -1,16 +1,16 @@
-using HouseRentApp.AppDB;
 using HouseRentApp.DAL;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Microsoft.AspNetCore.Identity;
-
-
+using HouseRentApp.AppDB;
 
 var builder = WebApplication.CreateBuilder(args);
+
 var connectionString = builder.Configuration.GetConnectionString("Connection") ?? throw new InvalidOperationException("Connection string 'DbConnection' not found.");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
 
 
 //DbContext
@@ -20,15 +20,14 @@ builder.Services.AddDbContext<Db>(options =>
 
 });
 
-/*
+
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
    //RoleBased Authorization 
    .AddRoles<IdentityRole>()
 
     .AddEntityFrameworkStores<Db>();
-*/
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = false)
-    .AddEntityFrameworkStores<Db>();
+
+
 
 
 builder.Services.AddScoped<IApartmentRepo, ApartmentRepo>();
@@ -65,8 +64,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseAuthentication(); ;
+app.UseAuthorization(); 
 
-app.UseAuthorization();
 DbInit.Seed(app);
 
 /*app.MapControllerRoute(
@@ -78,7 +77,7 @@ app.MapControllerRoute(
     pattern: "",
     defaults: new { controller = "Apartment", action = "Grid" });
 app.MapDefaultControllerRoute();
-
+app.MapControllers();
 app.MapRazorPages();
 
 //Seeding som Roles

@@ -1,5 +1,4 @@
-﻿
-using HouseRentApp.AppDB;
+﻿using HouseRentApp.AppDB;
 using HouseRentApp.DTOs;
 using HouseRentApp.Models;
 using Microsoft.AspNetCore.Http;
