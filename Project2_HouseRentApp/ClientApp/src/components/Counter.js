@@ -1,4 +1,5 @@
-﻿import React, { useState } from 'react';
+﻿
+import React, { useState } from 'react';
 
 function Counter() {
     //The source used for useState:https://react.dev/reference/react/useState
@@ -16,15 +17,15 @@ function Counter() {
         Description: '',
     });
     //Used source for handleChange:https://www.tabnine.com/code/javascript/functions/react/setValues
-    const handleChange = (e) => {
-        const { name, value } = e.target;
+    const handleChange = (event) => {
+        const { name, value } = event.target;
         setApartment({
             ...apartment,
             [name]: value
         });
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = (event) => {
         e.preventDefault();
 
     };
@@ -85,7 +86,7 @@ function Counter() {
                         <label>Description</label>
                         <input type="text" name="Description" value={apartment.Description} onChange={handleChange} className="form-control" />
                     </div>
-
+                    <br/>
                     <button type="submit" className="btn btn-primary">Create</button>
                     <a href="/Grid" className="btn btn-secondary">Back</a>
                 </form>
