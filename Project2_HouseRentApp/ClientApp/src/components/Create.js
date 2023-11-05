@@ -1,6 +1,8 @@
 ﻿
 import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+
+
+import { useNavigate } from "react-router-dom";
 function Counter() {
     //The source used for useState and handleSubmit
     //https://www.freecodecamp.org/news/how-to-perform-crud-operations-using-react/

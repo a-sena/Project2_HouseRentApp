@@ -1,6 +1,6 @@
 ﻿
-import React, { useState } from 'react';
-import { Link, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 function Counter() {
     //The source used for useState and handleSubmit
     //https://www.freecodecamp.org/news/how-to-perform-crud-operations-using-react/
@@ -24,7 +24,7 @@ function Counter() {
     //Source for useNavigate and handleSubmit: https://www.geeksforgeeks.org/how-to-do-crud-operations-in-reactjs/
     // Using useNavigation for redirecting to pages
     let history = useNavigate();
-  // Function for creating a apartment post
+    // Function for creating a apartment post
     const handleSubmit = (e) => {
         e.preventDefault(); // Prevent reload
         console.log(`${Name}`);
@@ -40,19 +40,33 @@ function Counter() {
         console.log(`${Description}`);
         history("/update");
     }
-   
+    // Useeffect take care that page will
+    // be rendered only once
+    useEffect(() => {
+        setName(localStorage.getItem("Name"));
+        setAdress(localStorage.getItem("Adress"));
+        setPrice(localStorage.getItem("Price"));
+        setName(localStorage.getItem("Square"));
+        setAdress(localStorage.getItem("FirstRentalDate"));
+        setPrice(localStorage.getItem("NumOfRooms"));
+        setAdress(localStorage.getItem("ImageUrl1"));
+        setPrice(localStorage.getItem("ImageUrl2"));
+        setName(localStorage.getItem("ImageUrl3"));
+        setAdress(localStorage.getItem("ImageUrl4"));
+        setPrice(localStorage.getItem("Description"));
+    }, []);
 
     return (
         <div>
 
             <div>
-                <h2>Create New Apartment</h2>
+                <h2>Update Your Apartment Information</h2>
                 <form className="create-form" onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="form-group col-6">
                             <label>Name</label><span className="text-danger">*</span>
-                            {/* Fetching  value from input field in a setName using usestate*/}
-                            <input type="text" name="Name" onChange={(e) => setName(e.target.value)} className="form-control" />
+                            {/* Fetching value from input field in a setName using usestate*/}
+                            <input type="text" name="Name" value={Name} onChange={(e) => setName(e.target.value)} className="form-control" />
                             {//Description of onChange:
                                 // (e) is short for event.
                                 // e.target.value = The target value is the value the user enters in the input field
@@ -63,51 +77,51 @@ function Counter() {
                         <div className="form-group col-6">
                             <label>Address</label>
                             {/* Fetching  value from input field in a setAdress using usestate*/}
-                            <input type="text" name="Adress"  onChange={(e) => setAdress(e.target.value)} className="form-control" />
+                            <input type="text" name="Adress" onChange={(e) => setAdress(e.target.value)} className="form-control" />
                         </div>
                     </div>
                     <div className="row">
                         <div className="form-group col-3">
                             <label>Price</label><span className="text-danger">*</span>
-                            <input type="text" name="Price"  onChange={(e) => setPrice(e.target.value)} className="form-control" />
+                            <input type="text" name="Price" onChange={(e) => setPrice(e.target.value)} className="form-control" />
                         </div>
                         <div className="form-group col-3">
                             <label>Square</label><span className="text-danger">*</span>
-                            <input type="text" name="Square"  onChange={(e) => setSquare(e.target.value)} className="form-control" />
+                            <input type="text" name="Square" onChange={(e) => setSquare(e.target.value)} className="form-control" />
                         </div>
                         <div className="form-group col-3">
                             <label>First Rental Date</label><span className="text-danger">*</span>
-                            <input type="text" name="FirstRentalDate"  onChange={(e) => setFirstRentalDate(e.target.value)} className="form-control" />
+                            <input type="text" name="FirstRentalDate" onChange={(e) => setFirstRentalDate(e.target.value)} className="form-control" />
                         </div>
                         <div className="form-group col-3">
                             <label>Number of Rooms</label><span className="text-danger">*</span>
-                            <input type="text" name="NumOfRooms"  onChange={(e) => setNumOfRooms(e.target.value)} className="form-control" />
+                            <input type="text" name="NumOfRooms" onChange={(e) => setNumOfRooms(e.target.value)} className="form-control" />
                         </div>
                     </div>
                     <div className="row">
                         <div className="form-group col-3">
                             <label>Image URL 1</label><span className="text-danger">*</span>
-                            <input type="text" name="ImageUrl1"  onChange={(e) => setImageUrl1(e.target.value)} className="form-control" />
+                            <input type="text" name="ImageUrl1" onChange={(e) => setImageUrl1(e.target.value)} className="form-control" />
                         </div>
                         <div className="form-group col-3">
                             <label>Image URL 2</label><span className="text-danger">*</span>
-                            <input type="text" name="ImageUrl2"  onChange={(e) => setImageUrl2(e.target.value)} className="form-control" />
+                            <input type="text" name="ImageUrl2" onChange={(e) => setImageUrl2(e.target.value)} className="form-control" />
                         </div>
                         <div className="form-group col-3">
                             <label>Image URL 3</label><span className="text-danger">*</span>
-                            <input type="text" name="ImageUrl3"  onChange={(e) => setImageUrl3(e.target.value)} className="form-control" />
+                            <input type="text" name="ImageUrl3" onChange={(e) => setImageUrl3(e.target.value)} className="form-control" />
                         </div>
                         <div className="form-group col-3">
                             <label>Image URL 4</label><span className="text-danger">*</span>
-                            <input type="text" name="ImageUrl4"  onChange={(e) => setImageUrl4(e.target.value)} className="form-control" />
+                            <input type="text" name="ImageUrl4" onChange={(e) => setImageUrl4(e.target.value)} className="form-control" />
                         </div>
                     </div>
                     <div className="form-group">
                         <label>Description</label>
-                        <input type="text" name="Description"  onChange={(e) => setDescription(e.target.value)} className="form-control" />
+                        <input type="text" name="Description" onChange={(e) => setDescription(e.target.value)} className="form-control" />
                     </div>
-                    <br/>
-                    <button type="submit" className="btn btn-primary">Create</button>
+                    <br />
+                    <button type="submit" className="btn btn-primary">Update</button>
                     <a href="/Grid" className="btn btn-secondary">Back</a>
                 </form>
 
