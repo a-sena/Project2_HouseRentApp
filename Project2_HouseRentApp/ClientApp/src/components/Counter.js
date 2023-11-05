@@ -2,8 +2,14 @@
 import React, { useState } from 'react';
 
 function Counter() {
-    //The source used for useState and postData:
+    //The source used for useState and handleSubmit
     //https://www.freecodecamp.org/news/how-to-perform-crud-operations-using-react/
+    // useState is used to track the value in input
+    //The states are initialized as empty
+    //For example Name is the getter and setName is the setter
+    //the getter holds the current value of the state
+    //the setter sets that value
+
     const [Name, setName] = useState('');
     const [Adress, setAdress] = useState('');
     const [Price, setPrice] = useState('');
@@ -18,30 +24,36 @@ function Counter() {
 
 
   
-    const postData = () => {
-        console.log(Name);
-        console.log(Adress);
-        console.log(Price);
-        console.log(Square);
-        console.log(FirstRentalDate);
-        console.log(NumOfRooms);
-        console.log(ImageUrl1);
-        console.log(ImageUrl2);
-        console.log(ImageUrl3);
-        console.log(ImageUrl4);
-        console.log(Description);
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(`${Name}`);
+        console.log(`${Adress}`);
+        console.log(`${Price}`);
+        console.log(`${Square}`);
+        console.log(`${FirstRentalDate}`);
+        console.log(`${NumOfRooms}`);
+        console.log(`${ImageUrl1}`);
+        console.log(`${ImageUrl2}`);
+        console.log(`${ImageUrl3}`);
+        console.log(`${ImageUrl4}`);
+        console.log(`${Description}`);
     }
 
-
+//Description of onChange:
+// (e) is short for event.
+// e.target.value = The target value is the value the user enters in the input field
+//with onChange we setting and tracking the value
+//used source:https://stackoverflow.com/questions/71039088/what-is-onchange-e-setnamee-target-value-in-react-mean
     return (
         <div>
 
             <div>
                 <h2>Create New Apartment</h2>
-                <form class = "create-form">
+                <form className="create-form" onSubmit={handleSubmit}>
                     <div className="row">
                         <div className="form-group col-6">
                             <label>Name</label><span className="text-danger">*</span>
+                         
                             <input type="text" name="Name"  onChange={(e) => setName(e.target.value)} className="form-control" />
                         </div>
                         <div className="form-group col-6">
@@ -90,7 +102,7 @@ function Counter() {
                         <input type="text" name="Description"  onChange={(e) => setDescription(e.target.value)} className="form-control" />
                     </div>
                     <br/>
-                    <button onClick={postData} type="submit" className="btn btn-primary">Create</button>
+                    <button type="submit" className="btn btn-primary">Create</button>
                     <a href="/Grid" className="btn btn-secondary">Back</a>
                 </form>
             </div>
