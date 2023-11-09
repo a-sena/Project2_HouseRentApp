@@ -49,6 +49,19 @@ var logger = loggerConfiguration.CreateLogger();
 builder.Logging.AddSerilog(logger);
 
 
+//Cors Policy for react 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("ClientAccess", builder =>
+    {
+        builder.WithOrigins("https://localhost:44431") 
+               .AllowAnyHeader()
+               .AllowAnyMethod()
+              .AllowCredentials();
+    });
+});
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -61,10 +74,10 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-
+app.UseCors("ClientAccess");
 app.UseRouting();
-app.UseAuthentication(); ;
-app.UseAuthorization(); 
+//app.UseAuthentication(); ;
+//app.UseAuthorization(); 
 
 DbInit.Seed(app);
 
@@ -79,6 +92,9 @@ app.MapControllerRoute(
 app.MapDefaultControllerRoute();
 app.MapControllers();
 app.MapRazorPages();
+
+
+
 
 //Seeding som Roles
 

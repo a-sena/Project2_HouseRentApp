@@ -20,7 +20,9 @@ namespace HouseRentApp.Controllers
             _accessor = accessor;
         }
 
-
+        [HttpGet]
+        [Route("Apartment")]
+       
         public async Task<IActionResult> Table()
         {
             var Apartments = await _repo.GetAllApartments();
@@ -30,7 +32,7 @@ namespace HouseRentApp.Controllers
                 return NotFound("there is no apartments");
             }
 
-            return View(Apartments);
+            return Ok(Apartments);
         }
 
 
