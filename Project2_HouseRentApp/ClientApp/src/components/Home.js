@@ -48,7 +48,7 @@ export function Home() {
                        
                     </Grid>
                 </Card.Content>
-                <Button.Group widths={2}>
+                <Button.Group widths={3}>
                     <Button
                             as={Link} to={`/${item.id}`}
                             basic
@@ -57,17 +57,22 @@ export function Home() {
                             color="green"
                             icon="info circle"
                   
-                            fluid
-                    />
+                            fluid > View </Button>
+                        <Button
+                            basic
+                            name={item.id}
+                            color="red"
+                            icon="trash"
+                            fluid > Edit </Button>
+
 
                         <Button
                             basic
                             name={item.id}
                             color="red"
                             icon="trash"
-                            fluid
-                        />
-                    
+                            fluid > Delete</Button>
+                        
                     
 
                 </Button.Group>
