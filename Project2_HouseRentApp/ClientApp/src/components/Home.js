@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { Image, Button, Card, Grid, Icon } from "semantic-ui-react";
+import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
 
 export function Home() {
     const [table, setTable] = useState(null);
@@ -19,7 +19,7 @@ export function Home() {
     }
 
     return (
-        <Card.Group itemsPerRow="5" >
+        <Card.Group itemsPerRow="3" >
             {table.map((item) =>
 
             (
@@ -30,50 +30,74 @@ export function Home() {
 
                 <Card.Content>
 
-                        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                            <Card.Header style={{ flex: 1 }}>{item.name}</Card.Header>
+                        <div style={{ display: 'flex', flexDirection: 'column' }}>
+
+                            <Card.Header style={{ textAlign: 'right', marginBottom: '0', fontStyle:'italic' }}>{item.adress}</Card.Header>
+                            <Card.Header as='h5' style={{ textAlign: 'left', marginTop: '10px' }}>{item.name}</Card.Header>
+                           
 
                         
                           
                         </div>
 
-                        <Card.Description>{item.description}</Card.Description>
+                        {/* <Card.Description>{item.description}</Card.Description>*/}
                 </Card.Content>
                 <Card.Content>
-                    <Grid columns={2}>
-                        <Grid.Column>
-                                <Icon name="dollar sign" />
-                                <span>{item.price}</span>
-                        </Grid.Column>
-                       
-                    </Grid>
-                </Card.Content>
+    
+                        <Grid columns={2}>
+ 
+                                <div>
+                                    <Icon name="home" />
+                                    <span>{item.square} m&sup2;</span>
+                                </div>
+                                <div>
+                                    <Icon name="dollar sign" />
+                                    <span>{item.price}</span>
+                                </div>
+
+                        </Grid>
+                        <Grid columns={2}>
+
+                            <div>
+                                <Icon name="bed" />
+                                <span>{item.numOfRooms}</span>
+                            </div>
+                            <div>
+                                <Icon name="calendar" />
+                                <span>{item.firstRentalDate}</span>
+                            </div>
+
+                        </Grid>
+
+                    </Card.Content>
+
                     <Button.Group widths={3}>
                        
                     
                         <Link to={`/${item.id}`}>
                             <Button                        
-                            basic
+                            
                             name={table.id}
                      
-                            color="green"
-                            icon="info circle"
+                            color="ui blue button"
+                                
                   
-                            fluid > View </Button> </Link>
+                                fluid > View </Button> </Link>
+                        <Link to={`/${item.id}`}>
                         <Button
-                            basic
+                            
                             name={item.id}
-                            color="red"
-                            icon="trash"
-                            fluid > Edit </Button>
+                            color="ui grey button"
+                          
+                                fluid > Edit </Button></Link>
 
-
+                        <Link to={`/${item.id}`}>
                         <Button
-                            basic
+                            
                             name={item.id}
-                            color="red"
-                            icon="trash"
-                            fluid > Delete</Button>
+                            color="ui red button"
+                           
+                            fluid > Delete</Button></Link>
                         
                     
 
