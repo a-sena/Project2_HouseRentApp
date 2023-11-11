@@ -74,7 +74,7 @@ export function Home() {
                     <Button.Group widths={3}>
                        
                     
-                        <Link to={`/details/${item.id}`}>
+                        <Link to={`/${item.id}`}>
                             <Button                        
                             
                             name={table.id}

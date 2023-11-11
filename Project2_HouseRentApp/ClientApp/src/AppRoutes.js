@@ -20,7 +20,7 @@ const AppRoutes = [
     element: <FetchData />
     },
   {
-    path: '/details/:id',
+    path: '/:id',
     element: <Details />
     },
   {

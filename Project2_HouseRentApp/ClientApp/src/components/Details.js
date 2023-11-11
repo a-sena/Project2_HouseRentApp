@@ -22,6 +22,7 @@ export function Details() {
 
             <div className='container p-5'>
                 <p>WELCOME USER THIS IS DETAILS PAGE</p>
+                <Image src={details.imageUrl1} size='medium' />
                 <div>
                     <Icon name="home" />
                     <span>{details.square} m&sup2;</span>
