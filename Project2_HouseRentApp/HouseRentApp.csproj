@@ -42,141 +42,141 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="ClientApp\src\images\1.1bedroom.jpg" />
-    <None Remove="ClientApp\src\images\1bathroom.jpg" />
-    <None Remove="ClientApp\src\images\1bedroom.jpg" />
-    <None Remove="ClientApp\src\images\1house.jpg" />
-    <None Remove="ClientApp\src\images\1kitchen.jpg" />
-    <None Remove="ClientApp\src\images\1room.jpg" />
-    <None Remove="ClientApp\src\images\2.1bedroom.jpg" />
-    <None Remove="ClientApp\src\images\2bathroom.jpg" />
-    <None Remove="ClientApp\src\images\2bedroom.jpg" />
-    <None Remove="ClientApp\src\images\2kitchen.jpg" />
-    <None Remove="ClientApp\src\images\2room.jpg" />
-    <None Remove="ClientApp\src\images\3bathroom.jpg" />
-    <None Remove="ClientApp\src\images\3bedroom.jpg" />
-    <None Remove="ClientApp\src\images\3house.jpg" />
-    <None Remove="ClientApp\src\images\3kitchen.jpg" />
-    <None Remove="ClientApp\src\images\3room.jpg" />
-    <None Remove="ClientApp\src\images\4bathroom.jpg" />
-    <None Remove="ClientApp\src\images\4bedroom.jpg" />
-    <None Remove="ClientApp\src\images\4house.jpg" />
-    <None Remove="ClientApp\src\images\4kitchen.jpg" />
-    <None Remove="ClientApp\src\images\4room.jpg" />
-    <None Remove="ClientApp\src\images\5bathroom.jpg" />
-    <None Remove="ClientApp\src\images\5house.jpg" />
-    <None Remove="ClientApp\src\images\5room.jpg" />
-    <None Remove="ClientApp\src\images\6house.jpg" />
-    <None Remove="ClientApp\src\images\6room.jpg" />
-    <None Remove="ClientApp\src\images\7house.jpg" />
+    <None Remove="ClientApp\public\images\1.1bedroom.jpg" />
+    <None Remove="ClientApp\public\images\1bathroom.jpg" />
+    <None Remove="ClientApp\public\images\1bedroom.jpg" />
+    <None Remove="ClientApp\public\images\1house.jpg" />
+    <None Remove="ClientApp\public\images\1kitchen.jpg" />
+    <None Remove="ClientApp\public\images\1room.jpg" />
+    <None Remove="ClientApp\public\images\2.1bedroom.jpg" />
+    <None Remove="ClientApp\public\images\2bathroom.jpg" />
+    <None Remove="ClientApp\public\images\2bedroom.jpg" />
+    <None Remove="ClientApp\public\images\2kitchen.jpg" />
+    <None Remove="ClientApp\public\images\2room.jpg" />
+    <None Remove="ClientApp\public\images\3bathroom.jpg" />
+    <None Remove="ClientApp\public\images\3bedroom.jpg" />
+    <None Remove="ClientApp\public\images\3house.jpg" />
+    <None Remove="ClientApp\public\images\3kitchen.jpg" />
+    <None Remove="ClientApp\public\images\3room.jpg" />
+    <None Remove="ClientApp\public\images\4bathroom.jpg" />
+    <None Remove="ClientApp\public\images\4bedroom.jpg" />
+    <None Remove="ClientApp\public\images\4house.jpg" />
+    <None Remove="ClientApp\public\images\4kitchen.jpg" />
+    <None Remove="ClientApp\public\images\4room.jpg" />
+    <None Remove="ClientApp\public\images\5bathroom.jpg" />
+    <None Remove="ClientApp\public\images\5house.jpg" />
+    <None Remove="ClientApp\public\images\5room.jpg" />
+    <None Remove="ClientApp\public\images\6house.jpg" />
+    <None Remove="ClientApp\public\images\6room.jpg" />
+    <None Remove="ClientApp\public\images\7house.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="ClientApp\src\images\1.1bedroom.jpg">
+    <Content Include="ClientApp\public\images\1.1bedroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\1bathroom.jpg">
+    <Content Include="ClientApp\public\images\1bathroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\1bedroom.jpg">
+    <Content Include="ClientApp\public\images\1bedroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\1house.jpg">
+    <Content Include="ClientApp\public\images\1house.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\1kitchen.jpg">
+    <Content Include="ClientApp\public\images\1kitchen.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\1room.jpg">
+    <Content Include="ClientApp\public\images\1room.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\2.1bedroom.jpg">
+    <Content Include="ClientApp\public\images\2.1bedroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\2bathroom.jpg">
+    <Content Include="ClientApp\public\images\2bathroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\2bedroom.jpg">
+    <Content Include="ClientApp\public\images\2bedroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\2kitchen.jpg">
+    <Content Include="ClientApp\public\images\2kitchen.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\2room.jpg">
+    <Content Include="ClientApp\public\images\2room.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\3bathroom.jpg">
+    <Content Include="ClientApp\public\images\3bathroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\3bedroom.jpg">
+    <Content Include="ClientApp\public\images\3bedroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\3house.jpg">
+    <Content Include="ClientApp\public\images\3house.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\3kitchen.jpg">
+    <Content Include="ClientApp\public\images\3kitchen.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\3room.jpg">
+    <Content Include="ClientApp\public\images\3room.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\4bathroom.jpg">
+    <Content Include="ClientApp\public\images\4bathroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\4bedroom.jpg">
+    <Content Include="ClientApp\public\images\4bedroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\4house.jpg">
+    <Content Include="ClientApp\public\images\4house.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\4kitchen.jpg">
+    <Content Include="ClientApp\public\images\4kitchen.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\4room.jpg">
+    <Content Include="ClientApp\public\images\4room.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\5bathroom.jpg">
+    <Content Include="ClientApp\public\images\5bathroom.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\5house.jpg">
+    <Content Include="ClientApp\public\images\5house.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\5room.jpg">
+    <Content Include="ClientApp\public\images\5room.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\6house.jpg">
+    <Content Include="ClientApp\public\images\6house.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\6room.jpg">
+    <Content Include="ClientApp\public\images\6room.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="ClientApp\src\images\7house.jpg">
+    <Content Include="ClientApp\public\images\7house.jpg">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>

@@ -3,7 +3,7 @@ import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Counter from "./components/Counter";
 import Update from "./components/Update";
-
+import { Details } from "./components/Details";
 const AppRoutes = [
   {
     index: true,
@@ -16,6 +16,10 @@ const AppRoutes = [
   {
     path: '/fetch-data',
     element: <FetchData />
+    },
+  {
+    path: '/details',
+    element: <Details />
     },
   {
         path: '/update',
