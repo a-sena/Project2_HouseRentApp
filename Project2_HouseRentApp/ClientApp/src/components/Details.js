@@ -1,6 +1,8 @@
 ﻿import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
+
 export function Details() {
     const {id} = useParams()
     const navigate = useNavigate()
@@ -21,10 +23,17 @@ export function Details() {
                 <p>{details.id}</p>
                 <p>{details.price}</p>
                 <p>{details.description}</p>
-                <Link to="/">Back</Link>
+                <Link to={`https://localhost:5001/`}>
+                    <Button
+
+                        name={details.id}
+                        color="grey"
+
+                        fluid > Back </Button></Link>
             </div>
 
         </div>
     );
 }
 
+export default Details; 

@@ -2,11 +2,13 @@
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Counter from "./components/Counter";
-import Update from "./components/Update";
+import { Update } from "./components/Update";
 import { Details } from "./components/Details";
+import { Delete } from "./components/Delete";
 const AppRoutes = [
   {
     index: true,
+
     element: <Home />
   },
   {
@@ -18,8 +20,12 @@ const AppRoutes = [
     element: <FetchData />
     },
   {
-    path: '/details',
+    path: '/details/:id',
     element: <Details />
+    },
+  {
+        path: '/delete',
+        element: <Delete />
     },
   {
         path: '/update',
