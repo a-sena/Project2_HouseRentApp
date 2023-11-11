@@ -79,23 +79,23 @@ export function Home() {
                             
                             name={table.id}
                      
-                            color="ui blue button"
+                            color="blue"
                                 
                   
                                 fluid > View </Button> </Link>
-                        <Link to={`/${item.id}`}>
+                        <Link to={`/update/${item.id}`}>
                         <Button
                             
                             name={item.id}
-                            color="ui grey button"
+                            color="grey"
                           
                                 fluid > Edit </Button></Link>
 
-                        <Link to={`/${item.id}`}>
+                        <Link to={`/delete/${item.id}`}>
                         <Button
                             
                             name={item.id}
-                            color="ui red button"
+                            color="red"
                            
                             fluid > Delete</Button></Link>
                         

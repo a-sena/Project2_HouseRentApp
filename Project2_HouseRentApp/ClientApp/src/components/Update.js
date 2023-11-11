@@ -1,7 +1,7 @@
 ﻿
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-function Counter() {
+export function Update() {
     //The source used for useState and handleSubmit
     //https://www.freecodecamp.org/news/how-to-perform-crud-operations-using-react/
     // useState is used to track the value in input
@@ -131,4 +131,3 @@ function Counter() {
     );
 }
 
-export default Counter;

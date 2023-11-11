@@ -47,6 +47,8 @@ namespace HouseRentApp.Controllers
 
             return View(Apartments);
         }
+        [HttpGet]
+        [Route("Apartment/{id}")]
 
         public async Task<IActionResult> Details(int id)
         {
@@ -56,7 +58,7 @@ namespace HouseRentApp.Controllers
                 _logger.LogError("could not find the selected Apartment with Id", id);
                 return NotFound("the selected Apartment was not found");
             }
-            return View(apartment);
+            return Ok(apartment);
         }
 
         //Authorizing for Admin Role
