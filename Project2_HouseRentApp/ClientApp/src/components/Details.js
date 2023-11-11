@@ -6,7 +6,7 @@ import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
 export function Details() {
     const {id} = useParams()
     const navigate = useNavigate()
-    const [details, setDetails] = useState([]);
+    const [details, setDetails] = useState({});
 
      useEffect(() => {
          axios.get("https://localhost:5001/Apartment/" + id)
@@ -14,19 +14,21 @@ export function Details() {
          
          .catch(err => console.log(err))
     
-     } , []);
+     }, [id]);
+
     return (
         <div className="container">
 
         
             <div className='container p-5'>
+            <p>WELCOME USER THIS IS DETAILS PAGE</p>
                 <p>{details.id}</p>
                 <p>{details.price}</p>
                 <p>{details.description}</p>
                 <Link to={`https://localhost:5001/`}>
                     <Button
 
-                        name={details.id}
+                       
                         color="grey"
 
                         fluid > Back </Button></Link>
