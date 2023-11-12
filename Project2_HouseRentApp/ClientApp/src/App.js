@@ -4,6 +4,7 @@ import AppRoutes from './AppRoutes';
 import { Layout } from './components/Layout';
 import './custom.css';
 import 'semantic-ui-css/semantic.min.css'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 export default class App extends Component {
   static displayName = App.name;
 
