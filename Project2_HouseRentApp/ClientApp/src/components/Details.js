@@ -18,6 +18,7 @@ export function Details() {
     }, [id]);
 
     return (
+        <div style={{ display: 'flex' }}>
         <div style={{ width: '50%', float: 'left' }}>
             {/*Used source for Carousel: https://medium.com/@isabellepino/package-for-react-carousel-31aac8b1f090  */ }
         <Carousel >
@@ -44,6 +45,38 @@ export function Details() {
                 <p className="legend">Bathroom</p>
             </div>
             </Carousel>
+        </div>
+            <div style={{ width: '50%', float: 'left', padding: '20px' }}>
+                <h1 style={{ textAlign: 'left', marginBottom: '0' }}>{details.name}</h1>
+
+                <p style={{ textAlign: 'left', marginBottom: '10px', marginTop: '0', fontStyle: 'italic' }}>{details.adress}</p>
+
+                <p style={{ marginBottom: '30px', marginTop: '10px',fontSize: '16px'  }} >{details.description}</p>
+                <Grid columns={2}>
+
+                    <div >
+                        <Icon name="home" />
+                        <span style={{ fontSize: '20px' }}>{details.square} m&sup2;</span>
+                    </div>
+                    <div>
+                        <Icon name="dollar sign" />
+                        <span style={{ fontSize: '20px' }}>{details.price}</span>
+                    </div>
+
+                </Grid>
+                <Grid columns={2}>
+
+                    <div>
+                        <Icon name="bed" />
+                        <span style={{ fontSize: '20px' }}>{details.numOfRooms}</span>
+                    </div>
+                    <div>
+                        <Icon name="calendar" />
+                        <span style={{ fontSize: '20px' }}>{details.firstRentalDate}</span>
+                    </div>
+
+                </Grid>
+            </div>
         </div>
     );
 
