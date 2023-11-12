@@ -19,6 +19,7 @@ export function Details() {
 
     return (
         <div style={{ width: '50%', float: 'left' }}>
+            {/*Used source for Carousel: https://medium.com/@isabellepino/package-for-react-carousel-31aac8b1f090  */ }
         <Carousel >
 
             <div >
