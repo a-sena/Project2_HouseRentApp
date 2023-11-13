@@ -60,15 +60,15 @@ function Counter() {
 
         }
         if (!data.numOfRooms || data.numOfRooms < 1 || data.numOfRooms > 9) {
-            toast.error('Number of Rooms must be between 1 and 9');
+            toast.error('the RoomNumber must be between 1 and 9');
             return false;
         }
         if (!data.price || data.price < 1) {
-            toast.error('Price must be a valid positive number');
+            toast.error('the Price must be positive');
             return false;
         }
         if (!data.square || data.square < 0) {
-            toast.error('Square must be a valid non-negative number');
+            toast.error('Square must be positiv number');
             return false;
         }
         return true;
@@ -76,7 +76,7 @@ function Counter() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (!data) {
-            console.error('data object is null or undefined.');
+            console.error('data object is null');
             return;
         }
         if (!validation()) {
