@@ -11,13 +11,13 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HouseRentApp.Migrations
 {
     [DbContext(typeof(Db))]
-    [Migration("20231102112345_init")]
+    [Migration("20231113122612_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "6.0.22");
+            modelBuilder.HasAnnotation("ProductVersion", "6.0.23");
 
             modelBuilder.Entity("HouseRentApp.Models.Apartment", b =>
                 {
@@ -66,30 +66,6 @@ namespace HouseRentApp.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Apartments");
-                });
-
-            modelBuilder.Entity("HouseRentApp.Models.Rental", b =>
-                {
-                    b.Property<int>("ApartmentId")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("EndDate")
-                        .HasColumnType("TEXT");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("INTEGER");
-
-                    b.Property<DateTime>("StartDate")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("ApartmentId", "UserId");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Rentals");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -153,10 +129,6 @@ namespace HouseRentApp.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Discriminator")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("Email")
                         .HasMaxLength(256)
                         .HasColumnType("TEXT");
@@ -207,8 +179,6 @@ namespace HouseRentApp.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasDiscriminator<string>("Discriminator").HasValue("IdentityUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -237,9 +207,11 @@ namespace HouseRentApp.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderKey")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ProviderDisplayName")
@@ -277,9 +249,11 @@ namespace HouseRentApp.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LoginProvider")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Name")
+                        .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Value")
@@ -288,32 +262,6 @@ namespace HouseRentApp.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
-                });
-
-            modelBuilder.Entity("HouseRentApp.Models.User", b =>
-                {
-                    b.HasBaseType("Microsoft.AspNetCore.Identity.IdentityUser");
-
-                    b.HasDiscriminator().HasValue("User");
-                });
-
-            modelBuilder.Entity("HouseRentApp.Models.Rental", b =>
-                {
-                    b.HasOne("HouseRentApp.Models.Apartment", "Apartment")
-                        .WithMany("Users")
-                        .HasForeignKey("ApartmentId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("HouseRentApp.Models.User", "User")
-                        .WithMany("Apartments")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Apartment");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -365,16 +313,6 @@ namespace HouseRentApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("HouseRentApp.Models.Apartment", b =>
-                {
-                    b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("HouseRentApp.Models.User", b =>
-                {
-                    b.Navigation("Apartments");
                 });
 #pragma warning restore 612, 618
         }

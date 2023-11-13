@@ -58,11 +58,17 @@ namespace HouseRentApp.Controllers
                 _logger.LogError("could not find the selected Apartment with Id", id);
                 return NotFound("the selected Apartment was not found");
             }
-            return Ok(apartment);
+            return View(apartment);
         }
 
         //Authorizing for Admin Role
-        [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
+
+
+
+
+        [HttpGet]
+        [Route("Create")]
         public async Task<IActionResult> Create()
         {
             return View();
@@ -70,34 +76,40 @@ namespace HouseRentApp.Controllers
 
 
         [HttpPost]
-        //Authorizing for Admin Role
-        //only users with Admin-Role can access this action
-        [Authorize(Roles = "Admin")]
+        [Route("Create")]
 
-        public async Task<IActionResult> Create(Apartment apartment)
+        public async Task<IActionResult> Create([FromBody]Apartment apartment)
         {
             if (!ModelState.IsValid)
             {
-                // if the model was not valid  we can logg an warning
+                // if the model was not valid  
+                var error = ModelState.Values.SelectMany(x => x.Errors);
+                foreach (var item in error)
+                {
+                    _logger.LogError($"error; {item.ErrorMessage}");
+                    return BadRequest("Validation error");
+                }
                 _logger.LogWarning("Creation of a new Apartmet failed", apartment);
-                return View(apartment);
+                return BadRequest("feil i validation");
             }
             bool resault = await _repo.createApartment(apartment);
 
             if (resault)
             {
                 // if the result was true we redirect to Grid view (to rent out page)
-                return RedirectToAction(nameof(Grid));
+                return RedirectToAction(nameof(Table));
             }
             // when the result is false 
             _logger.LogError("failed to create a new Apartment");
-            return View(apartment);
+            return BadRequest("failed to create");
 
         }
 
+       
+
 
         //Authorizing for Admin Role
-        [Authorize(Roles = "Admin")]
+     /*   [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(int id)
         {
             //find apartment and view it
@@ -107,21 +119,27 @@ namespace HouseRentApp.Controllers
                 _logger.LogError("No Apartments where found with", id);
                 return BadRequest("the Apartment was not found");
             }
-            return View(apartment);
+            return Ok(apartment);
         }
+
+        */
 
 
         [HttpPost]
         //Authorizing for Admin Role
         //only users with Admin-Role can access this action
-        [Authorize(Roles = "Admin")]
+       // [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Update(Apartment apartment)
         {
 
             if (!ModelState.IsValid)
             {
-                _logger.LogWarning("Updating of the Apartmet failed", apartment);
-                return View(apartment);
+                var error = ModelState.Values.SelectMany(x => x.Errors);
+                foreach (var item in error)
+                {
+                    _logger.LogError($"error; {item.ErrorMessage}");
+                }
+                return BadRequest("input is not valid");
             }
             bool result = await _repo.updateApartment(apartment);
             if (result)
@@ -129,12 +147,12 @@ namespace HouseRentApp.Controllers
                 //if the result is true redirect to Grid view (to rent out page)
                 return RedirectToAction(nameof(Grid));
             }
-            return View(apartment);
+            return Ok(apartment);
 
         }
 
         //Authorizing for Admin Role
-        [Authorize(Roles = "Admin")]
+      /*  [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int id)
         {
             var apartment = await _repo.GetEnApartment(id);
@@ -143,9 +161,9 @@ namespace HouseRentApp.Controllers
                 _logger.LogError("Apartment was not found", id);
                 return BadRequest("the apartment with the selected id was not found");
             }
-            return View(apartment);
+            return Ok(apartment);
         }
-
+        */
 
         [HttpPost]
         //Authorizing for Admin Role
@@ -166,7 +184,7 @@ namespace HouseRentApp.Controllers
 
         [HttpGet]
         //Authorizing for User Role
-        [Authorize(Roles = "User")]
+      /*  [Authorize(Roles = "User")]
 
         public async Task<IActionResult> RentApartment()
         {
@@ -177,7 +195,7 @@ namespace HouseRentApp.Controllers
 
 
 
-
+        */
 
         [HttpPost]
         //Authorizing for User Role
@@ -190,7 +208,7 @@ namespace HouseRentApp.Controllers
             if (!ModelState.IsValid)
             {
                 _logger.LogWarning("Renting of the Apartment failed");
-                return View();
+                return NotFound();
             }
 
             //if modelstate is valid it calls rentApartment method from ApartementRepo

@@ -68,10 +68,10 @@ namespace HouseRentApp.DAL
             }
             catch (Exception ex)
             {
-                _logger.LogError(" failed to create a new Apartment." +
-                                   " the error is:", ex.Message);
+                _logger.LogError("Failed to create a new Apartment. The error is: {ErrorMessage}", ex.ToString());
                 return false;
             }
+
 
         }
 
@@ -119,87 +119,89 @@ namespace HouseRentApp.DAL
         public async Task<bool> rentApartment(int id, RentlDTO rentlDTO)
         {
             //first we obtain the current user and calculate the number of rentaldays based on rentalDTO provided StartDate and EndDate 
-            try
-            {
-                var identityuser = await _userManager.GetUserAsync(_accessor.HttpContext.User);
+            /* try
+             {
+                 var identityuser = await _userManager.GetUserAsync(_accessor.HttpContext.User);
 
 
 
-                TimeSpan timeDifference = rentlDTO.EndDate - rentlDTO.StartDate;
-                int numberOfDays = timeDifference.Days;
-                //Verifies the existence of the User, and if the same rental for the same apartment and user exists
-                if (identityuser == null)
-                {
-                    _logger.LogError("identityUser is null");
-                    return false;
-                }
-                else
-                {
+                 TimeSpan timeDifference = rentlDTO.EndDate - rentlDTO.StartDate;
+                 int numberOfDays = timeDifference.Days;
+                 //Verifies the existence of the User, and if the same rental for the same apartment and user exists
+                 if (identityuser == null)
+                 {
+                     _logger.LogError("identityUser is null");
+                     return false;
+                 }
+                 else
+                 {
 
 
-                    var apartment = await _db.Apartments.FindAsync(id);
+                     var apartment = await _db.Apartments.FindAsync(id);
 
-                    if (apartment == null)
-                    {
-                        _logger.LogError("apartment is null");
-                        return false;
-                    }
-                    else
-                    {
-                        var existingRental = await _db.Rentals
-                                           .Where(r =>
-                                           r.ApartmentId == apartment.Id
-                                           && r.UserId == identityuser.Id)
-                                           .FirstOrDefaultAsync();
-                        //if a rental is already in place, it updates the rental details in database
-                        if (existingRental != null)
-                        {
-                            // Update the existing rental
-                            existingRental.StartDate = rentlDTO.StartDate;
-                            existingRental.EndDate = rentlDTO.EndDate;
-                            existingRental.Price = apartment.Price * numberOfDays;
+                     if (apartment == null)
+                     {
+                         _logger.LogError("apartment is null");
+                         return false;
+                     }
+                     else
+                     {
+                         var existingRental = await _db.Rentals
+                                            .Where(r =>
+                                            r.ApartmentId == apartment.Id
+                                            && r.UserId == identityuser.Id)
+                                            .FirstOrDefaultAsync();
+                         //if a rental is already in place, it updates the rental details in database
+                         if (existingRental != null)
+                         {
+                             // Update the existing rental
+                             existingRental.StartDate = rentlDTO.StartDate;
+                             existingRental.EndDate = rentlDTO.EndDate;
+                             existingRental.Price = apartment.Price * numberOfDays;
 
-                            await _db.SaveChangesAsync();
-                            return true;
-                        }
-                        else
-                        {
-                            //a new rental is created and added to the database
-                            var rental = new Rental
-                            {
+                             await _db.SaveChangesAsync();
+                             return true;
+                         }
+                         else
+                         {
+                             //a new rental is created and added to the database
+                             var rental = new Rental
+                             {
 
-                                Apartment = apartment,
-                                User = identityuser as User,
-                                StartDate = rentlDTO.StartDate,
-                                EndDate = rentlDTO.EndDate,
-                                Price = apartment.Price * numberOfDays,
+                                 Apartment = apartment,
+                                 User = identityuser as User,
+                                 StartDate = rentlDTO.StartDate,
+                                 EndDate = rentlDTO.EndDate,
+                                 Price = apartment.Price * numberOfDays,
 
-                                ApartmentId = apartment.Id,
-                                UserId = identityuser.Id,
-                            };
-
-
-                            await _db.Rentals.AddAsync(rental);
-                            await _db.SaveChangesAsync();
-                            return true;
+                                 ApartmentId = apartment.Id,
+                                 UserId = identityuser.Id,
+                             };
 
 
+                             await _db.Rentals.AddAsync(rental);
+                             await _db.SaveChangesAsync();
+                             return true;
 
 
-                        }
-                    }
 
 
-                }
+                         }
+                     }
 
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(" failed to rent the selected Apartment." +
-                                " the error is:", ex.Message);
-                return false;
 
-            }
+                 }
+
+             }
+             catch (Exception ex)
+             {
+                 _logger.LogError(" failed to rent the selected Apartment." +
+                                 " the error is:", ex.Message);
+                 return false;
+
+             }*/
+            return true;
         }
+
     }
 }

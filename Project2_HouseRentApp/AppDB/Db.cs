@@ -13,9 +13,9 @@ namespace HouseRentApp.AppDB
 
         public DbSet<Apartment> Apartments { get; set; }
 
-        public DbSet<Rental> Rentals { get; set; }
+        //public DbSet<Rental> Rentals { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
+       /* protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
@@ -40,6 +40,6 @@ namespace HouseRentApp.AppDB
         internal Task SaveChangesAsync()
         {
             throw new NotImplementedException();
-        }
+        }*/
     }
 }
