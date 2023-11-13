@@ -58,7 +58,7 @@ namespace HouseRentApp.Controllers
                 _logger.LogError("could not find the selected Apartment with Id", id);
                 return NotFound("the selected Apartment was not found");
             }
-            return View(apartment);
+            return Ok(apartment);
         }
 
         //Authorizing for Admin Role
@@ -105,11 +105,12 @@ namespace HouseRentApp.Controllers
 
         }
 
-       
+
 
 
         //Authorizing for Admin Role
-     /*   [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
+        [HttpGet]
         public async Task<IActionResult> Update(int id)
         {
             //find apartment and view it
@@ -122,7 +123,7 @@ namespace HouseRentApp.Controllers
             return Ok(apartment);
         }
 
-        */
+        
 
 
         [HttpPost]
@@ -152,7 +153,8 @@ namespace HouseRentApp.Controllers
         }
 
         //Authorizing for Admin Role
-      /*  [Authorize(Roles = "Admin")]
+        // [Authorize(Roles = "Admin")]
+        [HttpGet]
         public async Task<IActionResult> Delete(int id)
         {
             var apartment = await _repo.GetEnApartment(id);
@@ -163,7 +165,7 @@ namespace HouseRentApp.Controllers
             }
             return Ok(apartment);
         }
-        */
+        
 
         [HttpPost]
         //Authorizing for Admin Role
@@ -184,7 +186,7 @@ namespace HouseRentApp.Controllers
 
         [HttpGet]
         //Authorizing for User Role
-      /*  [Authorize(Roles = "User")]
+       // [Authorize(Roles = "User")]
 
         public async Task<IActionResult> RentApartment()
         {
@@ -195,12 +197,11 @@ namespace HouseRentApp.Controllers
 
 
 
-        */
-
+        
         [HttpPost]
         //Authorizing for User Role
         //only users with User-Role can access this action
-        [Authorize(Roles = "User")]
+        //[Authorize(Roles = "User")]
 
         public async Task<IActionResult> RentApartment(int id, RentlDTO rentalDTO)
         {
