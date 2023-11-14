@@ -15,7 +15,7 @@ export function Home() {
     }, []);
 
     if (!table) {
-        return null;
+        return <div>Loading...</div>;
     }
 
     return (
@@ -93,7 +93,7 @@ export function Home() {
 
                                         fluid > Edit </Button></Link>
                             </div>
-                                    <div class="col-md-4">
+                                    <div className="col-md-4">
                                 <Link to={`/delete/${item.id}`}>
                                     <Button
 

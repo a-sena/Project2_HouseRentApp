@@ -13,7 +13,7 @@ const AppRoutes = [
   },
   {
     path: '/counter',
-    element: <Counter />
+      element: <Counter key='update' />
   },
   {
     path: '/fetch-data',
@@ -28,8 +28,8 @@ const AppRoutes = [
         element: <Delete />
     },
   {
-        path: '/update',
-        element: <Update />
+      path: '/update/:id',
+      element: <Counter key='update' />
     }
 ];
 

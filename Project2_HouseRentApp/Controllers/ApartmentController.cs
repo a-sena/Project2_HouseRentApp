@@ -111,6 +111,7 @@ namespace HouseRentApp.Controllers
         //Authorizing for Admin Role
         //[Authorize(Roles = "Admin")]
         [HttpGet]
+        [Route("Update/{id}")]
         public async Task<IActionResult> Update(int id)
         {
             //find apartment and view it
@@ -126,11 +127,12 @@ namespace HouseRentApp.Controllers
         
 
 
-        [HttpPost]
+        [HttpPut]
         //Authorizing for Admin Role
         //only users with Admin-Role can access this action
-       // [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Update(Apartment apartment)
+        // [Authorize(Roles = "Admin")]
+        [Route("Update/{id}")]
+        public async Task<IActionResult> Update([FromBody] Apartment apartment)
         {
 
             if (!ModelState.IsValid)
