@@ -19,6 +19,18 @@ export function Home() {
     }
 
     return (
+        <div>
+            <div style={{marginBottom: '20px'}} class="col-md-1">
+                <Link to={"/counter"}>
+                    <Button
+                        
+                        name={table.id}
+
+                        color="green"
+                        class="medium"
+
+                        fluid > + Create </Button> </Link>
+            </div>
         <Card.Group itemsPerRow="3" >
             {table.map((item) =>
 
@@ -26,7 +38,7 @@ export function Home() {
                 <Card key={item.id}>
 
 
-                    <Image src={item.imageUrl1} size='medium' />
+                    <Image src={item.imageUrl1} size='100%' />
 
                 <Card.Content>
 
@@ -109,6 +121,6 @@ export function Home() {
             </Card>
         ))}
     </Card.Group>
-       
+        </div>
     );
 }
