@@ -20,6 +20,9 @@ export function Home() {
 
     return (
         <div>
+            <h1>RENT OUT YOUR HOME!</h1>
+            <h2>Hi Admin</h2>
+
             <div style={{marginBottom: '20px'}} class="col-md-1">
                 <Link to={"/counter"}>
                     <Button
@@ -27,10 +30,14 @@ export function Home() {
                         name={table.id}
 
                         color="green"
-                        class="medium"
+                       
 
                         fluid > + Create </Button> </Link>
             </div>
+  
+
+            <h3>Houses published by you:</h3>
+            <hr />
         <Card.Group itemsPerRow="3" >
             {table.map((item) =>
 
