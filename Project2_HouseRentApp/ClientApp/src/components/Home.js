@@ -71,37 +71,40 @@ export function Home() {
 
                     </Card.Content>
 
-                    <Button.Group widths={3}>
-                       
-                    
-                        <Link to={`/${item.id}`}>
-                            <Button                        
-                            
-                            name={table.id}
-                     
-                            color="blue"
-                                
-                  
-                                fluid > View </Button> </Link>
-                        <Link to={`/update/${item.id}`}>
-                        <Button
-                            
-                            name={item.id}
-                            color="grey"
-                          
-                                fluid > Edit </Button></Link>
+                    <Card.Content extra>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <Link to={`/${item.id}`}>
+                                    <Button
 
-                        <Link to={`/delete/${item.id}`}>
-                        <Button
-                            
-                            name={item.id}
-                            color="red"
-                           
-                            fluid > Delete</Button></Link>
-                        
-                    
+                                        name={table.id}
 
-                </Button.Group>
+                                        color="blue"
+
+
+                                        fluid > View </Button> </Link>
+                            </div>
+                                <div class="col-md-4">
+                                <Link to={`/update/${item.id}`}>
+                                    <Button
+
+                                        name={item.id}
+                                        color="grey"
+
+                                        fluid > Edit </Button></Link>
+                            </div>
+                                    <div class="col-md-4">
+                                <Link to={`/delete/${item.id}`}>
+                                    <Button
+
+                                        name={item.id}
+                                        color="red"
+
+                                        fluid > Delete</Button></Link>
+
+                            </div>
+                        </div>
+                    </Card.Content>
 
             </Card>
         ))}
