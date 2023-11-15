@@ -39,11 +39,7 @@ export function Details() {
                 <Image src={details.imageUrl4}  />
                 <p className="legend">Restroom</p>
             </div>
-            <div>
 
-                <Image src={details.imageUrl5}  />
-                <p className="legend">Bathroom</p>
-            </div>
             </Carousel>
         </div>
             <div style={{ width: '50%', float: 'left', padding: '20px' }}>
