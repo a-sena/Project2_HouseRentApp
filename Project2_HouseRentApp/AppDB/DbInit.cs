@@ -80,7 +80,7 @@ namespace HouseRentApp.AppDB
                         Description ="Located on the pier promenade boardwalk of one of Oslo's best and most upscale areas, this is the BEST place to be spending your visit in Oslo!\r\n\r\nRestaurants, bars, shopping, beaches, museums etc is located right outside the apartment building and most things are only a short walk away. There is however also a bus stop around the corner, about a 2 min walk, that will connect you to anywhere in the city.\r\n\r\nThe apartment has both washer/dryer and a balcony with a fantastic ocean view!!",
                         ImageUrl1 = "/images/7house.jpg",
                         ImageUrl2 = "/images/4room.jpg",
-                        ImageUrl3 = "/images/4kitchen.jpg",
+                        ImageUrl3 = "/images/2kitchen.jpg",
                         ImageUrl4 = "/images/4bedroom.jpg"
 
                     }

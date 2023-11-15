@@ -113,28 +113,42 @@ function Counter() {
             }
             console.log(data);
             try {
-                if (data.id) {
-                    const url = "https://localhost:5001/Update/{id}";
+                if (id) {
+                    const url = "https://localhost:5001/Update/{data.id}";
 
-                    axios.put(url, data).then(res => {
-                       
-                        navigate('/');
-                    })
+                    await axios.put(url, data).then((response) => {
+                        console.log(response.data);
+                        alert("data uppdated successfully");
+                         
+                     
+                    } )
+                  
+                   
+                        
+                   
                 }
                 else {
                     const url = "https://localhost:5001/Create"
 
-                    axios.post(url, data).then(res => {
-                        console.log(res.data);
-                        alert("data posted successfully");
-                        navigate('/');
+                    await axios.post(url, data).then(response => {
+                      console.log(response.data);
+                     // alert("data posted successfully");
+                      
                     })
+                   
                 }
+               
+
                 
+                await axios.get("https://localhost:5001/Apartment").then(() => {
+                    navigate(`/`);
+                }
+                )
+              
 
             } catch (error) {
-                console.error('Error creating apartment:', error);
-                toast.error('Error creating apartment');
+                console.error('Error creating or updating apartment:', error);
+                toast.error('Error creating or updating apartment');
             }
         };
 

@@ -79,9 +79,26 @@ namespace HouseRentApp.DAL
         {
             try
             {
-                _db.Apartments.Update(apartment);
+                var ExistingApartment= await _db.Apartments.FindAsync(apartment.Id);
+                if (ExistingApartment == null)
+                {
+                    return false;
+                }
+                ExistingApartment.Adress = apartment.Adress;
+                ExistingApartment.FirstRentalDate = apartment.FirstRentalDate;
+                ExistingApartment.Price = apartment.Price;
+                ExistingApartment.Square = apartment.Square;
+                ExistingApartment.NumOfRooms = apartment.NumOfRooms;
+                ExistingApartment.Description = apartment.Description;
+                ExistingApartment.Name = apartment.Name;
+                ExistingApartment.ImageUrl1 = apartment.ImageUrl1;
+                ExistingApartment.ImageUrl2 = apartment.ImageUrl2;
+                ExistingApartment.ImageUrl3 = apartment.ImageUrl3;
+                ExistingApartment.ImageUrl4 = apartment.ImageUrl4;
+
                 await _db.SaveChangesAsync();
                 return true;
+
             }
             catch (Exception ex)
             {

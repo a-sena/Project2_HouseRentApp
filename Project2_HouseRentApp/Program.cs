@@ -55,16 +55,16 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("ClientAccess", builder =>
     {
-        builder.WithOrigins("https://localhost:44431") 
+        builder.WithOrigins("https://localhost:44431")
                .AllowAnyHeader()
                .AllowAnyMethod()
-              .AllowCredentials();
+               .AllowCredentials();
+
     });
 });
 
-
 var app = builder.Build();
-
+app.UseCors("ClientAccess");
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -75,7 +75,7 @@ if (!app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseStaticFiles();
-app.UseCors("ClientAccess");
+
 app.UseRouting();
 //app.UseAuthentication(); ;
 //app.UseAuthorization(); 

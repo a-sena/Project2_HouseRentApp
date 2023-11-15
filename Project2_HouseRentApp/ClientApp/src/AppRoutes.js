@@ -2,19 +2,23 @@
 import { FetchData } from "./components/FetchData";
 import { Home } from "./components/Home";
 import Counter from "./components/Counter";
-import { Update } from "./components/Update";
 import { Details } from "./components/Details";
 import { Delete } from "./components/Delete";
 const AppRoutes = [
-  {
-    index: true,
+    {
+     
+     index: true,
 
-    element: <Home />
+     element: <Home />
   },
   {
     path: '/counter',
-      element: <Counter key='update' />
-  },
+      element: <Counter key='create' />
+    },
+    {
+        path: '/update/:id',
+        element: <Counter key='update' />
+    },
   {
     path: '/fetch-data',
     element: <FetchData />
@@ -27,10 +31,9 @@ const AppRoutes = [
         path: '/delete',
         element: <Delete />
     },
-  {
-      path: '/update/:id',
-      element: <Counter key='update' />
-    }
+   
+   
+  
 ];
 
 export default AppRoutes;

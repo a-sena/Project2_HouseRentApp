@@ -98,6 +98,7 @@ namespace HouseRentApp.Controllers
             {
                 // if the result was true we redirect to Grid view (to rent out page)
                 return RedirectToAction(nameof(Table));
+                
             }
             // when the result is false 
             _logger.LogError("failed to create a new Apartment");
@@ -148,9 +149,10 @@ namespace HouseRentApp.Controllers
             if (result)
             {
                 //if the result is true redirect to Grid view (to rent out page)
-                return RedirectToAction(nameof(Grid));
+                return RedirectToAction(nameof(Table));
+               
             }
-            return Ok(apartment);
+            return BadRequest("error updating the apartment");
 
         }
 
@@ -178,7 +180,7 @@ namespace HouseRentApp.Controllers
             bool result = await _repo.deleteApartment(id);
             if (result)
             {
-                return RedirectToAction(nameof(Grid));
+                return RedirectToAction(nameof(Table));
             }
             _logger.LogError("the deletion failed", id);
             return BadRequest("apartment deletion failed");
@@ -219,7 +221,7 @@ namespace HouseRentApp.Controllers
             var result = await _repo.rentApartment(id, rentalDTO);
             if (result)
             {
-                return RedirectToAction(nameof(Grid));
+                return RedirectToAction(nameof(Table));
 
 
             }
