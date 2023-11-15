@@ -114,8 +114,8 @@ function Counter() {
             console.log(data);
             try {
                 if (id) {
-                    const url = "https://localhost:5001/Update/{data.id}";
-
+                    
+                    const url = `https://localhost:5001/Update/${data.id}`;
                     await axios.put(url, data).then((response) => {
                         console.log(response.data);
                         alert("data uppdated successfully");
