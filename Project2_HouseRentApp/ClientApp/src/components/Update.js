@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-export default function Counter() {
+export default function Update() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
 
