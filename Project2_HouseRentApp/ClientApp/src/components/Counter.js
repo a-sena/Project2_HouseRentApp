@@ -11,7 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 
 
-function Counter() {
+export default function Counter() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
 
@@ -237,7 +237,7 @@ function Counter() {
 
                     <br />
                     <button type="submit" className="btn btn-primary">Create</button>
-                    <a href="/Grid" className="btn btn-secondary">Back</a>
+                    <a href="/" className="btn btn-secondary">Back</a>
                 </form>
 
             </div>
@@ -246,4 +246,4 @@ function Counter() {
 
     )
 }
-export default Counter;
+
