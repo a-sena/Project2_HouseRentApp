@@ -24,7 +24,7 @@ export function Home() {
             <h2>Hi Admin</h2>
 
             <div style={{marginBottom: '20px'}} class="col-md-1">
-                <Link to={"/counter"}>
+                <Link to={"/create"}>
                     <Button
                         
                         name={table.id}
