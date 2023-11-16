@@ -1,7 +1,6 @@
 ﻿using HouseRentApp.DAL;
 using HouseRentApp.DTOs;
 using HouseRentApp.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 
@@ -22,7 +21,7 @@ namespace HouseRentApp.Controllers
 
         [HttpGet]
         [Route("Apartment")]
-       
+
         public async Task<IActionResult> Table()
         {
             var Apartments = await _repo.GetAllApartments();
@@ -78,7 +77,7 @@ namespace HouseRentApp.Controllers
         [HttpPost]
         [Route("Create")]
 
-        public async Task<IActionResult> Create([FromBody]Apartment apartment)
+        public async Task<IActionResult> Create([FromBody] Apartment apartment)
         {
             if (!ModelState.IsValid)
             {
@@ -98,7 +97,7 @@ namespace HouseRentApp.Controllers
             {
                 // if the result was true we redirect to Grid view (to rent out page)
                 return RedirectToAction(nameof(Table));
-                
+
             }
             // when the result is false 
             _logger.LogError("failed to create a new Apartment");
@@ -125,7 +124,7 @@ namespace HouseRentApp.Controllers
             return Ok(apartment);
         }
 
-        
+
 
 
         [HttpPut]
@@ -150,7 +149,7 @@ namespace HouseRentApp.Controllers
             {
                 //if the result is true redirect to Grid view (to rent out page)
                 return RedirectToAction(nameof(Table));
-               
+
             }
             return BadRequest("error updating the apartment");
 
@@ -159,7 +158,8 @@ namespace HouseRentApp.Controllers
         //Authorizing for Admin Role
         // [Authorize(Roles = "Admin")]
         [HttpGet]
-        public async Task<IActionResult> Delete(int id)
+        [Route("Delete/{id}")]
+        public async Task<IActionResult> Delete([FromRoute] int id)
         {
             var apartment = await _repo.GetEnApartment(id);
             if (apartment == null)
@@ -171,18 +171,19 @@ namespace HouseRentApp.Controllers
         }
         
 
-        [HttpPost]
+        [HttpDelete]
         //Authorizing for Admin Role
         //only users with Admin-Role can access this action
-        [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        // [Authorize(Roles = "Admin")]
+        [Route("Delete/{id}")]
+        public async Task<IActionResult> Delete(Apartment apartment)
         {
-            bool result = await _repo.deleteApartment(id);
+            bool result = await _repo.deleteApartment(apartment.Id);
             if (result)
             {
                 return RedirectToAction(nameof(Table));
             }
-            _logger.LogError("the deletion failed", id);
+            _logger.LogError("the deletion failed");
             return BadRequest("apartment deletion failed");
         }
 

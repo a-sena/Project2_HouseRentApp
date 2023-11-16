@@ -13,7 +13,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function Counter() {
 
-    let [selectedApartement, setSelectedApartment] = useState(null);
+    
 
     const { id } = useParams();
 
@@ -27,14 +27,14 @@ function Counter() {
                 .then(
                     res => {
                         setData(res.data)
-                        console.log(selectedApartement)
+                        console.log(data)
                         console.log(res.data);
 
                     })
 
                 .catch(err => console.log(err));
         } else {
-            setSelectedApartment(null);
+            setData(initialValues);
         }
 
     }, [id]);

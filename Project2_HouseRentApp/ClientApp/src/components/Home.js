@@ -118,7 +118,7 @@ export function Home() {
 
                                         name={item.id}
                                         color="red"
-
+                                       
                                         fluid > Delete</Button></Link>
 
                             </div>

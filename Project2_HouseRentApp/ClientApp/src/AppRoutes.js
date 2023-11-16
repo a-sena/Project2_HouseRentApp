@@ -28,7 +28,7 @@ const AppRoutes = [
     element: <Details />
     },
   {
-        path: '/delete',
+      path: '/delete/:id',
         element: <Delete />
     },
    
