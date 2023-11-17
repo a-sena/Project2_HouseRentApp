@@ -21,12 +21,15 @@ export default function Create() {
 
 
     useEffect(() => {
+        //sending get request
+        //used source for get request:
+   //https://stackabuse.com/get-http-request-in-react/
         if (id) {
             var apartmentId = parseInt(id, 10);
             axios.get("https://localhost:5001/Apartment/" + apartmentId)
-                .then(
+                .then( 
                     res => {
-                        setData(res.data)
+                        setData(res.data) 
                         console.log(selectedApartement)
                         console.log(res.data);
 
@@ -38,7 +41,7 @@ export default function Create() {
         }
 
     }, [id]);
-
+//The states are initialized as empty
     const initialValues = {
         id: 0,
         name: '',
@@ -53,13 +56,11 @@ export default function Create() {
         imageUrl4: '',
         description: ''
     };
-     // useState React Hooks is used to track the value in input
 
-    //The states are initialized as empty
-    //For example name is the getter and setName is the setter
-    //the getter holds the current value of the state
-    //the setter sets that value
     console.log("init", initialValues)
+    // useState React Hooks is used to track the value in input
+    //the "data"holds the current value of the state
+    //the "setData""sets that value
     const [data, setData] = useState(initialValues);
 
 
@@ -67,8 +68,9 @@ export default function Create() {
 
     const handleChange = (e) => {
         const newData = { ...data };
-        newData[e.target.id] = e.target.value;
-        setData(newData);
+        // e.target.value = The target value is the value the user enters in the input field
+        newData[e.target.id] = e.target.value; //the value of the targetted element
+        setData(newData);//updating the state by taking newData
         console.log(newData);
     };
 
@@ -123,7 +125,7 @@ export default function Create() {
       
      //used source for post reques: https://blog.logrocket.com/how-to-use-axios-post-requests/
                 const url = "https://localhost:5001/Create"
-     //sending HTTP POST request to https://localhost:5001/Create
+     //sending HTTP POST request 
                 axios.post(url, data).then(response => {
                     console.log(response.data);
                     // alert("data posted successfully");
@@ -156,7 +158,7 @@ export default function Create() {
                             <span className="text-danger">*</span>
 
                             <input type="text" id='name' value={data.name}
-                                onChange={handleChange} className="form-control" />
+                                onChange={handleChange} className="form-control" /> {/*//with onChange we setting and tracking the value */}
 
                         </div>
                         <div className="form-group col-6">
