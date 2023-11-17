@@ -2,7 +2,7 @@
 ## Team:
 **Sirin Koca** - s182211  |  **Ahmet Okur** - s364568  |  **Theofilos Stefanidis** - s366447  |  **Nurhat Hasan (Solin)** - s351892  |  **Sena Uysun** - s364728
 ## Responsibilities 
-- **Frontend**: Ahmet, Theo, Sena, Solin
+- **Frontend**: Theo, Sena, Solin
 - **Backend**: Solin
 - **Testing**: Ahmet
 - **Documentation**: Sirin (every member writes min 300 words)
