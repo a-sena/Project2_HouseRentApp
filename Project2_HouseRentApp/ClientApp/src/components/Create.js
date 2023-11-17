@@ -53,6 +53,12 @@ export default function Create() {
         imageUrl4: '',
         description: ''
     };
+     // useState React Hooks is used to track the value in input
+
+    //The states are initialized as empty
+    //For example name is the getter and setName is the setter
+    //the getter holds the current value of the state
+    //the setter sets that value
     console.log("init", initialValues)
     const [data, setData] = useState(initialValues);
 
@@ -115,9 +121,9 @@ export default function Create() {
         console.log(data);
         try {
       
-           
+     //used source for post reques: https://blog.logrocket.com/how-to-use-axios-post-requests/
                 const url = "https://localhost:5001/Create"
-
+     //sending HTTP POST request to https://localhost:5001/Create
                 axios.post(url, data).then(response => {
                     console.log(response.data);
                     // alert("data posted successfully");
@@ -129,8 +135,8 @@ export default function Create() {
 
         catch (error) {
 
-            console.error('Error creating or updating apartment:', error);
-            toast.error('Error creating or updating apartment');
+            console.error('Error creating apartment:', error);
+            toast.error('Error creating apartment');
         }
     };
 
