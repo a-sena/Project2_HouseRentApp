@@ -65,7 +65,7 @@ export default function Update() {
         setData(newData);
         console.log(newData);
     };
-
+     //React-toastify for input validation 
     const validation = () => {
         if (!data.name) {
             toast.error('name is required')

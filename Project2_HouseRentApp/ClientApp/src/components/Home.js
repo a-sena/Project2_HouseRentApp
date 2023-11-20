@@ -45,7 +45,7 @@ export function Home() {
                 <Card key={item.id}>
 
 
-                    <Image src={item.imageUrl1} size='100%' />
+                    <Image src={item.imageUrl1} size='large' />
 
                 <Card.Content>
 

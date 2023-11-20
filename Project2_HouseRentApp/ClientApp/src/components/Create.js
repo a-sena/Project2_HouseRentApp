@@ -75,6 +75,7 @@ export default function Create() {
     };
 
     const validation = () => {
+    //React-toastify for input validation 
         if (!data.name) {
             toast.error('name is required')
             return false;
