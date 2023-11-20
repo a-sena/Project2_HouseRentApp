@@ -21,7 +21,7 @@ export function Home() {
     return (
         <div>
             <h1>RENT OUT YOUR HOME!</h1>
-            <h2>Hi Admin</h2>
+           
 
             <div style={{marginBottom: '20px'}} class="col-md-1">
                 <Link to={"/create"}>
