@@ -30,7 +30,7 @@ export default function Update() {
                 .then(
                     res => {
                         setData(res.data)
-                        console.log(selectedApartement)
+                        console.log(selectedApartement) //information about selected apartmant is printed on console
                         console.log(res.data);
 
                     })
