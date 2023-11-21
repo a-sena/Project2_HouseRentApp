@@ -14,8 +14,8 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Create() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
-     //useParams gets the ID from the website's route,
-    //for example, when redirected to the update page of a specific apartment, the ID of that apartment is retrieved
+ 
+    //with using useParams hook we can acces id from the URL
     const { id } = useParams();
     //to navigate back to home page React useNavigation Hook is used
     const navigate = useNavigate(); 
@@ -44,7 +44,8 @@ export default function Create() {
         }
 
     }, [id]);
-//The states are initialized as empty
+//initialValues are value we want to start with
+//The states are initialized as null/empty
     const initialValues = {
         id: 0,
         name: '',

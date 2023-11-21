@@ -1,15 +1,21 @@
 ﻿import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
 
 export function Details() {
+    //useParams is used to access id parameter from the URL
     const { id } = useParams()
-    const navigate = useNavigate()
+  
+    //details, setDetails are to insert data into
+    //the "details"holds the current value of the state
+    //the initial value of details is specified as empty
+    //the "setDetails" is a function to update the current state 
     const [details, setDetails] = useState({});
 
     useEffect(() => {
+        //axious http get call
         axios.get("https://localhost:5001/Apartment/" + id)
             .then(res => setDetails(res.data))
 
@@ -19,7 +25,8 @@ export function Details() {
 
     return (
         <div style={{ display: 'flex' }}>
-        <div style={{ width: '50%', float: 'left' }}>
+            <div style={{ width: '50%', float: 'left' }}>
+            {/*react-responsive-carousel hook is used to create slide show with pictures of apartment*/}
             {/*Used source for Carousel: https://medium.com/@isabellepino/package-for-react-carousel-31aac8b1f090  */ }
         <Carousel >
 

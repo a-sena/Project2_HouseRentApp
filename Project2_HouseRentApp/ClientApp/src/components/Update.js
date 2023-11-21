@@ -146,7 +146,8 @@ export default function Update() {
                 })
 
                 //navigate to homepage after submitting the form
-                axios.get("https://localhost:5001/Apartment").then(() => {
+            axios.get("https://localhost:5001/Apartment").then(() => {
+                alert("The post is updated successfully.");
                     navigate(`/`); 
                 })
 

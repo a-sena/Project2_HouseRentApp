@@ -9,13 +9,13 @@ import { Link } from "react-router-dom";
 
 export function Delete() {
 
- //useParams gets the ID from the website's route,
+ //useParams gets the ID from the website's route
     const { id } = useParams();
     console.log(id);
    
   
     //useState React Hooks is used to track the data value
-    //the initial value of data is specified as null
+    //the initial value of data is specified as empty
     const [data, setData] = useState({});
 
    //to navigate back to home page React useNavigation Hook is used
@@ -27,9 +27,9 @@ export function Delete() {
         
             var apartmentId = parseInt(id, 10); //Converting the id variable to integer
             axios.get("https://localhost:5001/Apartment/" + apartmentId)
-            .then(res => {setData(prevData => ({ ...prevData, ...res.data })); //spread operation is used to object merging
+            .then(res => {setData(res.data); 
                 })
-            .catch(err => console.log(err)); //if an error ocuurs, catch the error and write on the console.
+            .catch(err => console.log(err)); //if an error occurs, catch the error and write on the console.
        },[id]);
 
    
@@ -46,7 +46,7 @@ export function Delete() {
                // toast.error('Error deleting apartment');
             });
 
-        console.log("The apartment is deleted successfully.");
+        alert("The apartment  is deleted successfully.");
         navigate("/");
 
     };
