@@ -48,30 +48,26 @@ export function Details() {
                 <p style={{ textAlign: 'left', marginBottom: '10px', marginTop: '0', fontStyle: 'italic' }}>{details.adress}</p>
 
                 <p style={{ marginBottom: '30px', marginTop: '10px',fontSize: '16px'  }} >{details.description}</p>
-                <Grid columns={2}>
-
-                    <div >
+                <div className="row">
+                    <div className="col-4">
                         <Icon name="home" />
                         <span style={{ fontSize: '20px' }}>{details.square} m&sup2;</span>
                     </div>
-                    <div>
+                    <div className="col">
                         <Icon name="dollar sign" />
                         <span style={{ fontSize: '20px' }}>{details.price}</span>
                     </div>
-
-                </Grid>
-                <Grid columns={2}>
-
-                    <div>
+                    </div>
+                <div className="row">
+                    <div className="col-4">
                         <Icon name="bed" />
                         <span style={{ fontSize: '20px' }}>{details.numOfRooms}</span>
                     </div>
-                    <div>
+                    <div className="col">
                         <Icon name="calendar" />
                         <span style={{ fontSize: '20px' }}>{details.firstRentalDate}</span>
                     </div>
-
-                </Grid>
+</div>
             </div>
         </div>
     );
