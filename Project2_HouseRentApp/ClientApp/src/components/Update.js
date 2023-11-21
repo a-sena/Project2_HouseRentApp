@@ -14,9 +14,10 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Update() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
-
+    //useParams gets the ID from the website's route, 
+    //for example, when redirected to the update page of a specific apartment, the ID of that apartment is retrieved
     const { id } = useParams();
-
+    //to navigate back to home page React useNavigation Hook is used
     const navigate = useNavigate();
 
      //we use axious get call using useEffect. we are sending get request to url with spesific apartment id

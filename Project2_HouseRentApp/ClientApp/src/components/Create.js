@@ -14,28 +14,32 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Create() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
-    
+     //useParams gets the ID from the website's route,
+    //for example, when redirected to the update page of a specific apartment, the ID of that apartment is retrieved
     const { id } = useParams();
-
+    //to navigate back to home page React useNavigation Hook is used
     const navigate = useNavigate(); 
 
-
+    // axious get is called using useEffect. we are sending get request to url with spesific apartment id
     useEffect(() => {
         //sending get request
         /*used source for get request: https://stackabuse.com/get-http-request-in-react/ */
+        //if id is found
         if (id) {
-            var apartmentId = parseInt(id, 10);
-            axios.get("https://localhost:5001/Apartment/" + apartmentId)
-                .then( 
+            var apartmentId = parseInt(id, 10); //Converting the id variable to integer
+            axios.get("https://localhost:5001/Apartment/" + apartmentId) //http get request
+                .then(
                     res => {
-                        setData(res.data) 
+                        setData(res.data)
                         console.log(selectedApartement)
                         console.log(res.data);
 
                     })
 
-                .catch(err => console.log(err));
-        } else {
+                .catch(err => console.log("Error:", err)); //If an error occurs during the "then"", error is catched.
+        }
+        //if id is not found
+        else {
             setSelectedApartment(null);
         }
 
