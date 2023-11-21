@@ -116,6 +116,10 @@ export default function Create() {
     }
     //It is stated what will happen after pressing the Update button with the handleSubmit function.
     const handleSubmit = async (e) => {
+        //calling e.preventDefault() on the form's submission
+        //it prevents the page from refreshing
+        //allowing us to handle and process the form without causing the entire page to reload
+        //used source:https://www.shecodes.io/athena/931-why-do-we-need-event-preventdefault-in-javascript
         e.preventDefault();
         //if data is not found the error message is written on the console
         if (!data) {
