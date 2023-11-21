@@ -128,9 +128,7 @@ namespace HouseRentApp.Controllers
 
 
         [HttpPut]
-        //Authorizing for Admin Role
-        //only users with Admin-Role can access this action
-        // [Authorize(Roles = "Admin")]
+
         [Route("Update/{id}")]
         public async Task<IActionResult> Update([FromBody] Apartment apartment)
         {

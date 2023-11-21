@@ -138,7 +138,7 @@ export default function Update() {
             toast.error('Error  updating apartment');
         }
     };
-
+       //if the data value is not defined, Loading is displayed on the screen.
     if (!data && id) {
         return <div>loading...</div>
     }

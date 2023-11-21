@@ -12,7 +12,7 @@ export function Home() {
     //the "setTable""sets that value
     
     const [table, setTable] = useState(null);
-    const url = "https://localhost:5001/Apartment";
+    const url = "https://localhost:5001/Apartment"; //this URL must match the Route value in the controller
   
     //we use axious get call using useEffect. we are sending get request to url
     //"then" we set a table we create a table with response.data
@@ -31,7 +31,7 @@ export function Home() {
         <div>
             <h1>RENT OUT YOUR HOME!</h1>
           
-            {/*Create button*/}
+            {/*"Create" button*/}
             <div style={{ marginBottom: '20px' }} className="col-md-2">
                 
                 <Link to={"/create"}>
@@ -52,6 +52,7 @@ export function Home() {
             <hr />
             {/*semantic-ui's Card is used to display the site content meanly the apartments  in a card view*/ }
             <Card.Group itemsPerRow="3" > {/*the number of items in each row is specified as 3*/}
+                {/*map() is used to loop all the houses in the database.*/ }
             {table.map((item) =>
 
             (
@@ -72,28 +73,30 @@ export function Home() {
                           
                         </div>
 
-                        {/* <Card.Description>{item.description}</Card.Description>*/}
+                       
                 </Card.Content>
                 <Card.Content>
-    
+                        {/* Information about house size,number of rooms, first rental date, price is also addded on the each card*/ }
                         <div className="row">
- 
+                            {/* Information about house size*/}
                             <div className="col-4">
                                     <Icon name="home" />
                                     <span>{item.square} m&sup2;</span>
-                                </div>
+                            </div>
+                            {/* Information about price*/}
                             <div className="col">
                                     <Icon name="dollar sign" />
                                     <span>{item.price}</span>
                                 </div>
 
                        </div>
-                       
+                        {/* Information about number of rooms*/}
                             <div className="row">
                                 <div className="col-4">
                                 <Icon name="bed" />
                                 <span>{item.numOfRooms}</span>
                             </div>
+                            {/* Information about first rental date*/}
                                 <div className="col">
                                 <Icon name="calendar" />
                                 <span>{item.firstRentalDate}</span>
