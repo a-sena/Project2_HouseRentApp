@@ -14,16 +14,15 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function Create() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
-
+    
     const { id } = useParams();
 
-    const navigate = useNavigate();
+    const navigate = useNavigate(); 
 
 
     useEffect(() => {
         //sending get request
-        //used source for get request:
-   //https://stackabuse.com/get-http-request-in-react/
+        /*used source for get request: https://stackabuse.com/get-http-request-in-react/ */
         if (id) {
             var apartmentId = parseInt(id, 10);
             axios.get("https://localhost:5001/Apartment/" + apartmentId)
@@ -130,11 +129,12 @@ export default function Create() {
       
      //used source for post reques: https://blog.logrocket.com/how-to-use-axios-post-requests/
                 const url = "https://localhost:5001/Create"
-     //sending HTTP POST request 
+     //sending HTTP POST request to defined url
+     //data represents the created values
                 axios.post(url, data).then(response => {
                     console.log(response.data);
                     // alert("data posted successfully");
-                    navigate(`/`);
+                    navigate(`/`); //navigate to homepage after submitting the form
 
                 })
 
@@ -146,7 +146,7 @@ export default function Create() {
             toast.error('Error creating apartment');
         }
     };
-
+//if the data value is not defined, loading is displayed on the screen.
     if (!data && id) {
         return <div>loading...</div>
     }
@@ -163,7 +163,7 @@ export default function Create() {
                             <span className="text-danger">*</span>
 
                             <input type="text" id='name' value={data.name}
-                                onChange={handleChange} className="form-control" /> {/*//with onChange we setting and tracking the value */}
+                                onChange={handleChange} className="form-control" /> {/*//with onChange we are setting and tracking the value */}
 
                         </div>
                         <div className="form-group col-6">

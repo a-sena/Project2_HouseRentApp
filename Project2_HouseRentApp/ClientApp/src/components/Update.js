@@ -22,9 +22,10 @@ export default function Update() {
      //we use axious get call using useEffect. we are sending get request to url with spesific apartment id
     //"then" we set data, we create a data with response.data
     useEffect(() => {
+        //if id is found
         if (id) {
-            var apartmentId = parseInt(id, 10);
-            axios.get("https://localhost:5001/Apartment/" + apartmentId)
+            var apartmentId = parseInt(id, 10); //Converting the id variable to integer
+            axios.get("https://localhost:5001/Apartment/" + apartmentId) //http get request
                 .then(
                     res => {
                         setData(res.data)
@@ -33,13 +34,16 @@ export default function Update() {
 
                     })
 
-                .catch(err => console.log(err));
-        } else {
+                .catch(err => console.log("Error:", err)); //If an error occurs during the "then"", error is catched.
+        }
+        //if id is not found
+        else {
             setSelectedApartment(null);
         }
 
     }, [id]);
-    //the initials values is defined
+
+    //the initials values of attributes are defined
     const initialValues = {
         id: 0,
         name: '',
@@ -55,6 +59,7 @@ export default function Update() {
         description: ''
     };
     console.log("init", initialValues)
+
     // useState React Hooks is used to track the value in input
     //the "data"holds the current value of the state
     //the "setData"sets that value
@@ -70,7 +75,7 @@ export default function Update() {
         setData(newData);//updating the state by taking newData
         console.log(newData);
     };
-     //React-toastify for input validation 
+     //React-toastify is used for input validation 
     const validation = () => {
         if (!data.name) {
             toast.error('name is required')
@@ -126,7 +131,8 @@ export default function Update() {
         try {
             
                 const url = "https://localhost:5001/Update/{data.id}";
-
+                //sending http put request to defined url
+                //the data represents the updated value
                 axios.put(url, data).then((response) => {
                     console.log(response.data);
                     // alert("data uppdated successfully");
@@ -134,9 +140,9 @@ export default function Update() {
                     navigate(`/`);
                 })
 
-
+                //navigate to homepage after submitting the form
                 axios.get("https://localhost:5001/Apartment").then(() => {
-                    navigate(`/`);
+                    navigate(`/`); 
                 })
 
 
