@@ -63,13 +63,13 @@ export function Delete() {
 
             <ul className="list-group w-50">
               
-                <li className="list-group-item"><span style={{ fontWeight: 'bold' }}>Name:</span> {data.name}</li>
-                <li className="list-group-item"><span style={{ fontWeight: 'bold' }}>Address: </span>{data.adress}</li>
-                <li className="list-group-item"><span style={{ fontWeight: 'bold' }}>Price:</span> $ {data.price}</li>
-                <li className="list-group-item"><span style={{ fontWeight: 'bold' }}>Square:</span> {data.square} m&sup2;</li>
-                <li className="list-group-item"><span style={{ fontWeight: 'bold' }}>FirstRentalDate:</span> {data.firstRentalDate}</li>
-                <li className="list-group-item"><span style={{ fontWeight: 'bold' }}>NumOfRooms:</span> {data.numOfRooms}</li>
-                <li className="list-group-item"><span style={{ fontWeight: 'bold' }}>Description:</span> {data.description}</li>
+                <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Name:</span> {data.name}</li>
+                <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Address: </span>{data.adress}</li>
+                <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Price:</span> $ {data.price}</li>
+                <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Square:</span> {data.square} m&sup2;</li>
+                <li className="list-group-item"><span style={{ fontWeight: "bold" }}>FirstRentalDate:</span> {data.firstRentalDate}</li>
+                <li className="list-group-item"><span style={{ fontWeight: "bold" }}>NumOfRooms:</span> {data.numOfRooms}</li>
+                <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Description:</span> {data.description}</li>
             </ul>
 
             <div className="row" style={{ marginLeft: '60px', marginTop: '20px' }}>
@@ -89,7 +89,7 @@ export function Delete() {
                             name={data.id}
                             color="grey"
 
-                            fluid> Back to Home</Button>
+                            fluid> Back to Home Page</Button>
                     
                 </Link>
                 </div>
