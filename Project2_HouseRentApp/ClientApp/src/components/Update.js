@@ -131,7 +131,7 @@ export default function Update() {
         console.log(data);
         try {
             
-                const url = "https://localhost:5001/Update/{data.id}";
+                const url = "https://localhost:5001/Update/{data.id}"; //this URL must match the Route value of update function in the controller
                 //sending http put request to defined url
                 //the data represents the updated value
                 axios.put(url, data).then((response) => {

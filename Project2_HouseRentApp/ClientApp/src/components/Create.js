@@ -132,7 +132,7 @@ export default function Create() {
         try {
       
      //used source for post reques: https://blog.logrocket.com/how-to-use-axios-post-requests/
-                const url = "https://localhost:5001/Create"
+                const url = "https://localhost:5001/Create" //this URL must match the Route value of create function in the controller
      //sending HTTP POST request to defined url
      //data represents the created values
                 axios.post(url, data).then(response => {
