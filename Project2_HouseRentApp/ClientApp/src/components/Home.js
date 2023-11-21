@@ -13,8 +13,8 @@ export function Home() {
     
     const [table, setTable] = useState(null);
     const url = "https://localhost:5001/Apartment";
-    //med hjelp av useEffect gjør vi axious.get
-    //we use axious get call. we are sending get request to url
+  
+    //we use axious get call using useEffect. we are sending get request to url
     //"then" we set a table we create a table with response.data
     useEffect(() => {
         axios.get(url).then((response) => {
@@ -104,6 +104,7 @@ export function Home() {
                     </Card.Content>
 
                     <Card.Content extra>
+                        {/* View button that directs the user to the details page*/}
                         <div className="row">
                             <div className="col-md-4">
                                 <Link to={`/${item.id}`}>
@@ -116,6 +117,7 @@ export function Home() {
 
                                         fluid > View </Button> </Link>
                             </div>
+                            {/* Edit button that directs users to the page where they can update their home listings*/}
                             <div className="col-md-4">
                                 <Link to={`/update/${item.id}`}>
                                     <Button
@@ -125,6 +127,7 @@ export function Home() {
 
                                         fluid > Edit </Button></Link>
                             </div>
+                            {/* Delete button that directs users to the page where they can delete their home listing*/}
                                     <div className="col-md-4">
                                 <Link to={`/delete/${item.id}`}>
                                     <Button
