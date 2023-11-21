@@ -19,7 +19,8 @@ export default function Update() {
 
     const navigate = useNavigate();
 
-
+     //we use axious get call using useEffect. we are sending get request to url with spesific apartment id
+    //"then" we set data, we create a data with response.data
     useEffect(() => {
         if (id) {
             var apartmentId = parseInt(id, 10);
@@ -38,7 +39,7 @@ export default function Update() {
         }
 
     }, [id]);
-
+    //the initials values is defined
     const initialValues = {
         id: 0,
         name: '',
@@ -54,15 +55,19 @@ export default function Update() {
         description: ''
     };
     console.log("init", initialValues)
+    // useState React Hooks is used to track the value in input
+    //the "data"holds the current value of the state
+    //the "setData"sets that value
+    //the initial value of data is specified as null,(values in the initialValues variable)
     const [data, setData] = useState(initialValues);
-
 
 
 
     const handleChange = (e) => {
         const newData = { ...data };
-        newData[e.target.id] = e.target.value;
-        setData(newData);
+        // e.target.value = The target value is the value the user enters in the input field
+        newData[e.target.id] = e.target.value; //the value of the targetted element
+        setData(newData);//updating the state by taking newData
         console.log(newData);
     };
      //React-toastify for input validation 
@@ -102,16 +107,21 @@ export default function Update() {
         }
         return true;
     }
-    const handleSubmit = async (e) => {
+    //It is stated what will happen after pressing the Update button with the handleSubmit function.
+    //submitting the form asynchronously with handleSubmit
+    const handleSubmit = async (e) => { // async function is passed for asynchronous validation.
         e.preventDefault();
+        //if data is not found the error message is written on the console
         if (!data) {
             console.error('data object is null');
             return;
         }
+        //if validation is faild the error message is written on the console
         if (!validation()) {
             console.error('Form validation failed.');
             return;
         }
+        //if validation is succeded the data is written on the console
         console.log(data);
         try {
             

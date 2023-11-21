@@ -111,16 +111,20 @@ export default function Create() {
         }
         return true;
     }
+    //It is stated what will happen after pressing the Update button with the handleSubmit function.
     const handleSubmit = async (e) => {
         e.preventDefault();
+        //if data is not found the error message is written on the console
         if (!data) {
             console.error('data object is null');
             return;
         }
+        //if validation is faild the error message is written on the console
         if (!validation()) {
             console.error('Form validation failed.');
             return;
         }
+        //if validation is succeded the data is written on the console
         console.log(data);
         try {
       
