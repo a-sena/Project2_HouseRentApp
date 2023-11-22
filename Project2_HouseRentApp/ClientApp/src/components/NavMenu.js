@@ -28,14 +28,14 @@ export class NavMenu extends Component {
                 <NavbarBrand tag={Link} to="/" style={{ fontFamily: 'Monoton, cursive' }}>HouseRentApp</NavbarBrand>
           <NavbarToggler onClick={this.toggleNavbar} className="mr-2" />
           <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={!this.state.collapsed} navbar>
-            <ul className="navbar-nav flex-grow">
+            <ul className="navbar-nav flex-grow" >
               <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                <NavLink tag={Link} className="text-dark" to="/">Home Page</NavLink>
               </NavItem>
-              <NavItem>
-                <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
-              </NavItem>
-
+    
+                        <NavItem>
+                            <NavLink tag={Link} className="text-dark" to="/create">Publish A Post</NavLink>
+                        </NavItem>
             </ul>
           </Collapse>
         </Navbar>

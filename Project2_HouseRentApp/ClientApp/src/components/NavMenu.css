@@ -2,10 +2,12 @@
   white-space: normal;
   text-align: center;
   word-break: break-all;
+
 }
 
 html {
   font-size: 14px;
+
 }
 @media (min-width: 768px) {
   html {
