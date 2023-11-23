@@ -1,5 +1,4 @@
 ﻿using HouseRentApp.DAL;
-using HouseRentApp.DTOs;
 using HouseRentApp.Models;
 using Microsoft.AspNetCore.Mvc;
 
@@ -60,9 +59,6 @@ namespace HouseRentApp.Controllers
             return Ok(apartment);
         }
 
-        //Authorizing for Admin Role
-        // [Authorize(Roles = "Admin")]
-
 
 
 
@@ -108,8 +104,7 @@ namespace HouseRentApp.Controllers
 
 
 
-        //Authorizing for Admin Role
-        //[Authorize(Roles = "Admin")]
+      
         [HttpGet]
         [Route("Update/{id}")]
         public async Task<IActionResult> Update(int id)
@@ -153,8 +148,7 @@ namespace HouseRentApp.Controllers
 
         }
 
-        //Authorizing for Admin Role
-        // [Authorize(Roles = "Admin")]
+      
         [HttpGet]
         [Route("Delete/{id}")]
         public async Task<IActionResult> Delete([FromRoute] int id)
@@ -170,9 +164,7 @@ namespace HouseRentApp.Controllers
         
 
         [HttpDelete]
-        //Authorizing for Admin Role
-        //only users with Admin-Role can access this action
-        // [Authorize(Roles = "Admin")]
+    
         [Route("Delete/{id}")]
         public async Task<IActionResult> Delete(Apartment apartment)
         {
@@ -187,50 +179,9 @@ namespace HouseRentApp.Controllers
 
 
 
-        [HttpGet]
-        //Authorizing for User Role
-       // [Authorize(Roles = "User")]
-
-        public async Task<IActionResult> RentApartment()
-        {
-
-            return View();
-
-        }
-
-
-
+      
         
-        [HttpPost]
-        //Authorizing for User Role
-        //only users with User-Role can access this action
-        //[Authorize(Roles = "User")]
-
-        public async Task<IActionResult> RentApartment(int id, RentlDTO rentalDTO)
-        {
-            // checks if the modelstate is valid or not
-            if (!ModelState.IsValid)
-            {
-                _logger.LogWarning("Renting of the Apartment failed");
-                return NotFound();
-            }
-
-            //if modelstate is valid it calls rentApartment method from ApartementRepo
-            //getting the result if calling the RentApartment was successful, redirect to Grid action
-            var result = await _repo.rentApartment(id, rentalDTO);
-            if (result)
-            {
-                return RedirectToAction(nameof(Table));
-
-
-            }
-            _logger.LogError("the Renting failed", id);
-            return BadRequest("apartment Renting failed");
-
-
-
-        }
-
+       
     }
 }
 

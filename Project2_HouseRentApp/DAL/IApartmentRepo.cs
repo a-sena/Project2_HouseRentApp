@@ -1,4 +1,4 @@
-﻿using HouseRentApp.DTOs;
+﻿
 using HouseRentApp.Models;
 
 
@@ -11,6 +11,6 @@ namespace HouseRentApp.DAL
         Task<bool> createApartment(Apartment apartment);
         Task<bool> updateApartment(Apartment apartment);
         Task<bool> deleteApartment(int id);
-        Task<bool> rentApartment(int id, RentlDTO rentlDTO);
+      
     }
 }
