@@ -43,11 +43,7 @@ This project is a continuation of Group Project 1, utilizing the same back-end b
 ## Additional Information
 - The application is designed as a SPA (Single Page Application).
 - The database handles multiple types of entities with comprehensive CRUD operations.
-- For error handling, logging, and additional functionalities, refer to the project documentation.
-
-## Grading and Evaluation
-- This project adheres to the University Council's grading guidelines.
-- Emphasis is placed on error-free functionality, quality of requirements implementation, and additional features like user experience enhancements.
+- For error handling, logging, and additional functionalities, please see the project documentation.
 
 ## Contributing
 - Contributions to this project are managed by group members.
