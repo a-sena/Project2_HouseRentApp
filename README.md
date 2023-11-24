@@ -5,7 +5,7 @@
 - **Frontend**: Theo, Sena, Solin
 - **Backend**: Solin
 - **Testing**: Ahmet
-- **Documentation**: Sirin (every member writes min 300 words)
+- **Documentation report, .gitignore, License, Readme**: Sirin 
 - other?
 ### :warning: Deadline
 - Submission **30st Nov, 11:59**
