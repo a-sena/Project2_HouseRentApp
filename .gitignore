@@ -1,4 +1,5 @@
-# .gitignore for ITPE3200 - Web Applications Group Project
+# .gitignore
+# ITPE3200 - Web Applications Group Project - Part2
 #
 # This file specifies intentionally untracked files to ignore in our ASP.NET Core 6.0 MVC with React project.
 # It's tailored to our development environment in Visual Studio and other tools we use.
