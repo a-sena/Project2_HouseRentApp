@@ -29,7 +29,8 @@ export function Home() {
 
     return (
         <div>
-            <h1>RENT OUT YOUR HOME!</h1>
+            <h1>Explore and manage your property listings easily with HouseRent App.</h1>
+            <h3> <i> - your nr.one destination for rental postings! </i></h3>
           
             {/*"Create" button*/}
             <div style={{ marginBottom: '20px' }} className="col-md-2">
