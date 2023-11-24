@@ -1,4 +1,6 @@
-# ITPE3200 Web Applications Part 2 - Group Project 2
+# ITPE3200 Web Applications 
+# HouseRentApp Part 2
+_Group Project_
 
 ## Overview
 This repository contains the project for ITPE3200 Web Applications Part 2, Group Project 2 (2023). Our project implements a web application with a .NET back-end and Angular/React front-end, adhering to the requirements of creating a Minimum Viable Product (MVP).
@@ -17,7 +19,7 @@ This repository contains the project for ITPE3200 Web Applications Part 2, Group
 - **Documentation report, .gitignore, License, Readme**: Sirin 
 
 ## Project Description
-This project is a continuation of Group Project 1, utilizing the same back-end built with .NET Core (6.0 or later). The front-end is developed using either Angular or React. The application supports CRUD operations for at least one entity and includes a user-friendly interface with interactive forms.
+This project is a continuation of Group Project 1, utilizing the same back-end built with .NET Core (6.0 or later). The front-end is developed using the JS library React. The application supports CRUD operations for at least one entity and includes a user-friendly interface with interactive forms.
 
 ### Key Features
 - Interactive front-end web interface
@@ -35,8 +37,8 @@ This project is a continuation of Group Project 1, utilizing the same back-end b
 - Login credentials: [Default login credentials as admin]
 
 ## Documentation
-- A detailed documentation of 1000-3000 words is provided alongside this project, explaining the architecture, functionality, and coding aspects.
-- For additional diagrams and UML, refer to the attached PDF/Word document in the submission.
+- A detailed documentation of approx. 3000 words are provided alongside this project in PDF format, explaining the architecture, functionality, and coding aspects.
+- Additionally, we have provided diagrams such as UML (ahmet) and React components showing the Virtual DOM structure.  (sirin)
 
 ## Additional Information
 - The application is designed as a SPA (Single Page Application).
@@ -56,14 +58,10 @@ This project is a continuation of Group Project 1, utilizing the same back-end b
 
 ---
 
-**Note:** This README is a part of the Group Project 2 submission for ITPE3200 Web Applications Part 2, 2023.
-
-
 ### :warning: Submission Deadline:
 - Soft deadline: **29.11.23, 12:00**
 - Hard deadline: **30st Nov, 11:59**
 
 ---
 
-OsloMet 2023 - All rights reserved. 
-
+ITPE3200 Web Applications Part 2, OsloMet 2023 - All rights reserved. 
