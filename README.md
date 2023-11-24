@@ -3,7 +3,7 @@
 _Group Project_
 
 ## Overview
-This repository contains the project for ITPE3200 Web Applications Part 2, Group Project 2 (2023). Our project implements a web application with a .NET back-end and Angular/React front-end, adhering to the requirements of creating a Minimum Viable Product (MVP).
+This repository contains the project for ITPE3200 Web Applications Part 2, Group Project 2 (2023). Our project implements a web application with a .NET back-end and Semantic UI React for the front-end, adhering to the requirements of creating a Minimum Viable Product (MVP).
 
 ## Group Members
 - Member 1: **Sena Uysun** - s364728
