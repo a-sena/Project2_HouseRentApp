@@ -1,7 +1,7 @@
 ﻿import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, Link } from "react-router-dom";
-import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
+import { useParams } from "react-router-dom";
+import { Image, Icon } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
 
 export function Details() {
@@ -18,8 +18,8 @@ export function Details() {
         //axious http get call
         axios.get("https://localhost:5001/Apartment/" + id)
             .then(res => setDetails(res.data))
-
-            .catch(err => console.log(err))
+            //If an error is encountered, the catch block is executed
+            .catch(err => console.log("Error:", err)) 
 
     }, [id]);
 

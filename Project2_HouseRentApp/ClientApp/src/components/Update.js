@@ -31,11 +31,11 @@ export default function Update() {
                     res => {
                         setData(res.data)
                         console.log(selectedApartement) //information about selected apartmant is printed on console
-                        console.log(res.data);
+                        console.log(res.data);// the response is logged using console.log
 
                     })
 
-                .catch(err => console.log("Error:", err)); //If an error occurs during the "then"", error is catched.
+                .catch(err => console.log("Error:", err)); //If an error occurs during the "then", error is catched.
         }
         //if id is not found
         else {
@@ -119,7 +119,10 @@ export default function Update() {
         //calling e.preventDefault() on the form's submission
         //it prevents the page from refreshing
         //allowing us to handle and process the form without causing the entire page to reload
-        //used source:https://www.shecodes.io/athena/931-why-do-we-need-event-preventdefault-in-javascript
+        /*---------------------------------------------------------------------------------------*/
+        //used source:
+        //https://www.shecodes.io/athena/931-why-do-we-need-event-preventdefault-in-javascript
+        /*---------------------------------------------------------------------------------------*/
         e.preventDefault();
         //if data is not found the error message is written on the console
         if (!data) {

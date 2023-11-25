@@ -29,7 +29,7 @@ export function Delete() {
             axios.get("https://localhost:5001/Apartment/" + apartmentId)
             .then(res => {setData(res.data); 
                 })
-            .catch(err => console.log(err)); //if an error occurs, catch the error and write on the console.
+            .catch(err => console.log(err)); //if an error occurs, catch handels the error and write on the console.
        },[id]);
 
    

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
-import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
+import { Image, Button, Card, Icon } from 'semantic-ui-react';
 
 export function Home() {
     
@@ -12,15 +12,23 @@ export function Home() {
     //the "setTable""sets that value
     
     const [table, setTable] = useState(null);
+
     const url = "https://localhost:5001/Apartment"; //this URL must match the Route value in the controller
-  
+
     //we use axious get call using useEffect. we are sending get request to url
     //"then" we set a table we create a table with response.data
+
     useEffect(() => {
         axios.get(url).then((response) => {
-            console.log(response.data)
+            console.log(response.data)// the response is logged using console.log
             setTable(response.data);
-        });
+        })
+        //If an error is encountered, the catch block is executed
+            .catch((error) => {
+                //Error message is written to the console
+                console.error('Error :', error);
+
+            });
     }, []);
     //if the table value is not defined, Loading is displayed on the screen.
     if (!table) {
@@ -30,7 +38,7 @@ export function Home() {
     return (
         <div>
             <h1>Explore and manage your property listings easily with HouseRent App.</h1>
-            <h3> <i> - your nr.one destination for rental postings! </i></h3>
+            <h3> <i> Your number one destination for rental postings! </i></h3>
           
             {/*"Create" button*/}
             <div style={{ marginBottom: '20px' }} className="col-md-2">

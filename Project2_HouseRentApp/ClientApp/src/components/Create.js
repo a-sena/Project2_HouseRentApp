@@ -23,7 +23,9 @@ export default function Create() {
     // axious get is called using useEffect. we are sending get request to url with spesific apartment id
     useEffect(() => {
         //sending get request
-        /*used source for get request: https://stackabuse.com/get-http-request-in-react/ */
+        /*---------------------------------------------------------------------------------------*/
+        //used source for get request:https://stackabuse.com/get-http-request-in-react/ 
+        /*---------------------------------------------------------------------------------------*/
         //if id is found
         if (id) {
             var apartmentId = parseInt(id, 10); //Converting the id variable to integer
@@ -120,7 +122,9 @@ export default function Create() {
         //calling e.preventDefault() on the form's submission
         //it prevents the page from refreshing
         //allowing us to handle and process the form without causing the entire page to reload
+        /*---------------------------------------------------------------------------------------*/
         //used source:https://www.shecodes.io/athena/931-why-do-we-need-event-preventdefault-in-javascript
+        /*---------------------------------------------------------------------------------------*/
         e.preventDefault();
         //if data is not found the error message is written on the console
         if (!data) {
@@ -136,19 +140,26 @@ export default function Create() {
         console.log(data);
         try {
       
-     //used source for post reques: https://blog.logrocket.com/how-to-use-axios-post-requests/
+
+
                 const url = "https://localhost:5001/Create" //this URL must match the Route value of create function in the controller
      //sending HTTP POST request to defined url
      //data represents the created values
+     //To fulfill the POST request, the user's inputs to the input fields are captured and inputs are added along with the POST request
+     /*---------------------------------------------------------------------------------------*/
+     //used sources for post reques:
+     //https://blog.logrocket.com/how-to-use-axios-post-requests/
+     //https://www.cloudsigma.com/using-http-client-axios-in-a-react-application-a-tutorial/
+     /*---------------------------------------------------------------------------------------*/ 
                 axios.post(url, data).then(response => {
-                    console.log(response.data);
+                    console.log(response.data);// the response is logged using console.log
                     // alert("data posted successfully");
                     navigate(`/`); //navigate to homepage after submitting the form
 
                 })
 
             }
-
+//If an error is encountered, the catch block is executed
         catch (error) {
 
             console.error('Error creating apartment:', error);
