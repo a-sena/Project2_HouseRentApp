@@ -13,7 +13,9 @@ export function Home() {
     //the "setTable""sets that value
     
     const [table, setTable] = useState(null);
-
+    /*Used source while implementing filtering apartments :https://dev.to/alais29/building-a-real-time-search-filter-in-react-a-step-by-step-guide-3lmm */
+    const [filteredApartments, setFilteredApartments] = useState([]);
+   
     const url = "https://localhost:5001/Apartment"; //this URL must match the Route value in the controller
 
     //we use axious get call using useEffect. we are sending get request to url
@@ -23,7 +25,11 @@ export function Home() {
         axios.get(url).then((response) => {
             console.log(response.data)// the response is logged using console.log
             setTable(response.data);
+            // update the filteredApartments state
+            setFilteredApartments(response.data);
+        
         })
+ 
         //If an error is encountered, the catch block is executed
             .catch((error) => {
                 //Error message is written to the console,console logging
@@ -36,7 +42,13 @@ export function Home() {
     if (!table) {
         return <div>Loading...</div>;
     }
-
+    /* Filter apartments by name */
+    function onChange(e) {
+        const value = e.target.value
+        setFilteredApartments(table.filter(table => table.name.toLowerCase().includes(value.toLowerCase()))
+        )
+        
+    }
     return (
         <div>
             <h1>Explore and manage your property listings easily with HouseRent App.</h1>
@@ -61,10 +73,15 @@ export function Home() {
 
             <h2>Houses published by you:</h2>
             <hr />
-            {/*semantic-ui's Card is used to display the site content meanly the apartments  in a card view*/ }
+            {/*used source to create input field for search : https://react.semantic-ui.com/elements/input/#variations-icon */ }
+            <div class="ui icon input" style={{ marginBottom:'40px' }}>
+            <input onChange={onChange} type="search" placeholder="Search apartment..."></input>
+                <i aria-hidden="true" class="search icon"></i>
+            </div>
+               {/*semantic-ui's Card is used to display the site content meanly the apartments  in a card view*/ }
             <Card.Group itemsPerRow="3" > {/*the number of items in each row is specified as 3*/}
-                {/*map() is used to loop all the houses in the database.*/ }
-            {table.map((item) =>
+                {/*map() is used to loop all the houses in the database.*/}
+                {filteredApartments.map((item) =>
 
             (
                 <Card key={item.id}>
