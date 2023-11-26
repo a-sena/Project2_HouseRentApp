@@ -78,6 +78,8 @@ export default function Update() {
     };
      //React-toastify is used for input validation 
     const validation = () => {
+        //React-toastify for input validation 
+
         if (!data.name) {
             toast.error('name is required')
             return false;
@@ -85,6 +87,13 @@ export default function Update() {
         if (!data.adress) {
             toast.error('adress is required')
             return false;
+        }
+        const correctAdresFormat = /^[\w\s]+,\s+[\w\s]+,\s+\d{4}$/;
+        //Example: Elias kræmmersvei, Drammen, 3023
+        if (!correctAdresFormat.test(data.adress)) {
+            console.error("This is not correct format of an adress:", data.adress);
+            toast.error("The adress should be in Street Name, City, Zip Code format.");
+            return;
         }
         if (!data.description) {
             toast.error('description is required')
@@ -94,10 +103,23 @@ export default function Update() {
             toast.error('FirstRentalDate is required')
             return false;
         }
+        const checkDateFormat = /^\d{2}\.\d{2}\.\d{4}$/;
+
+        if (!checkDateFormat.test(data.firstRentalDate)) {
+            console.error("Invalid date format");
+            toast.error("Please enter a valid date in the format DD.MM.YYYY");
+            return;
+        }
         if (!data.imageUrl1) {
             toast.error('ImageUrl1 is required')
             return false;
 
+        }
+        const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+        if (!checkImageUrlFormat.test(data.imageUrl1)) {
+            console.error('This is not correct format of an imageurl:', data.imageUrl1);
+            toast.error('Enter the imageUrl in "/images/7house.jpg" format');
+            return;
         }
         if (!data.numOfRooms || data.numOfRooms < 1 || data.numOfRooms > 9) {
             toast.error('the RoomNumber must be between 1 and 9');
