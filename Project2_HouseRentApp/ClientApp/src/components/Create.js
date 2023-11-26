@@ -7,18 +7,22 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
-
-
-
+/**
+ * The "Create" component provides a form for creating new apartment listings.
+ * It manages form state with local state hooks and handles form submission.
+ * If an apartment ID is provided via URL parameters, the component will fetch the data for that
+ * apartment and fill in the form to allow editing.
+ *
+ * @returns A React element that renders a form for creating or editing apartment listings.
+ */
 export default function Create() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
- 
+
     //with using useParams hook we can acces id from the URL
     const { id } = useParams();
     //to navigate back to home page React useNavigation Hook is used
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     // axious get is called using useEffect. we are sending get request to url with spesific apartment id
     useEffect(() => {
@@ -39,7 +43,7 @@ export default function Create() {
                     })
                 //If an error occurs during the "then"", error is catched.
                 .catch((err) => {
-                  //Error message is printed to the console
+                    //Error message is printed to the console
                     console.error("Error:", err);
                     console.log("Error:", err);
                     // Error message is displayed to the user with toastify error
@@ -53,8 +57,8 @@ export default function Create() {
         }
 
     }, [id]);
-//initialValues are value we want to start with
-//The states are initialized as null/empty
+    //initialValues are value we want to start with
+    //The states are initialized as null/empty
     const initialValues = {
         id: 0,
         name: '',
@@ -77,7 +81,13 @@ export default function Create() {
     const [data, setData] = useState(initialValues);
 
 
-
+    // Function to handle changes in the form inputs.
+    /**
+     * Function handleChange:
+     * Handles changes to form input fields and updates local state.
+     * 
+     * @param {React.ChangeEvent<HTMLInputElement>} e The input change event.
+     */
 
     const handleChange = (e) => {
         const newData = { ...data };
@@ -87,8 +97,15 @@ export default function Create() {
         console.log(newData);
     };
 
+    // Function to validate form inputs.
+    /**
+     * Validates the form data before submission.
+     * Uses toast notifications to alert the user of validation errors.
+     * 
+     * @returns {boolean} True if the form data is valid, false otherwise.
+     */
     const validation = () => {
-    //React-toastify for input validation 
+        //React-toastify for input validation 
 
         //Name is required, if it is not provided, the error message is displayed to user
         if (!data.name) {
@@ -115,10 +132,8 @@ export default function Create() {
             toast.error('the Price must be positive');
             return false;
         }
-        //Information about the size of the house is required.If it is not provided, the error message is displayed to user
-        if (!data.square || data.square < 0) {
-            console.error('Square must be positiv number');
-            toast.error('Square must be positiv number');
+        if (!data.description) {
+            toast.error('description is required')
             return false;
         }
         //Defining first rental date is required, if it is not provided, the error message is displayed to user
@@ -148,62 +163,15 @@ export default function Create() {
             console.error('ImgUrl Of Your House is required')
             toast.error('Image Of House is required. Please provide ImgUrl')
             return false;
-
         }
-        //If img url 1 is entered as input, it is checked whether the correct format is entered.
-        const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
-        if (!checkImageUrlFormat.test(data.imageUrl1)) {
-            console.error('This is not correct format of an imageurl:', data.imageUrl1);
-            toast.error('Enter the imageUrl of house in "/images/7house.jpg" format');
-            return;
-        }
-        //Imageurl2/Image of livingroom is not required,
-        //If the image url is entered, it is checked whether the formation is correct.
-        if (data.imageUrl2) {
-            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
-
-            if (!checkImageUrlFormat.test(data.imageUrl2)) {
-                console.error('This is not correct format of an imageurl:', data.imageUrl2);
-                toast.error('Enter the imageUrl of livingroom in "/images/7house.jpg" format');
-                return;
-            }
-
-        }
-        //Imageurl3/Image of kitchen is not required,
-        //If the image url is entered, it is checked whether the formation is correct.
-
-        if (data.imageUrl3) {
-            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
-
-            if (!checkImageUrlFormat.test(data.imageUrl3)) {
-                console.error('This is not correct format of an imageurl:', data.imageUrl3);
-                toast.error('Enter the imageUrl of kitchen in "/images/7house.jpg" format');
-                return;
-            }
-
-        }
-        //Imageurl3/Image of restroom is not required,
-        //If the image url is entered, it is checked whether the formation is correct.
-        if (data.imageUrl4) {
-            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
-
-            if (!checkImageUrlFormat.test(data.imageUrl4)) {
-                console.error('This is not correct format of an imageurl:', data.imageUrl4);
-                toast.error('Enter the imageUrl of restroom in "/images/7house.jpg" format');
-                return;
-            }
-        }
-        //Description is required, if it is not provided, the error message is displayed to user
-
-        if (!data.description) {
-            console.error('Description is required')
-            toast.error('Description is required')
+        if (!data.square || data.square < 0) {
+            toast.error('Square must be positiv number');
             return false;
         }
 
         return true;
     }
-    //It is stated what will happen after pressing the "publish" button with the handleSubmit function.
+    //It is stated what will happen after pressing the Update button with the handleSubmit function.
     const handleSubmit = async (e) => {
         //calling e.preventDefault() on the form's submission
         //it prevents the page from refreshing
@@ -225,36 +193,36 @@ export default function Create() {
         //if validation is succeded the data is written on the console
         console.log(data);
         try {
-      
 
 
-                const url = "https://localhost:5001/Create" //this URL must match the Route value of create function in the controller
-     //sending HTTP POST request to defined url
-     //data represents the created values
-     //To fulfill the POST request, the user's inputs to the input fields are captured and inputs are added along with the POST request
-     /*---------------------------------------------------------------------------------------*/
-     //used sources for post reques:
-     //https://blog.logrocket.com/how-to-use-axios-post-requests/
-     //https://www.cloudsigma.com/using-http-client-axios-in-a-react-application-a-tutorial/
-     /*---------------------------------------------------------------------------------------*/ 
-                axios.post(url, data).then(response => {
-                    console.log(response.data);// the response is logged using console.log
-                    // alert("data posted successfully");
-                    navigate(`/`); //navigate to homepage after submitting the form
 
-                })
+            const url = "https://localhost:5001/Create" //this URL must match the Route value of create function in the controller
+            //sending HTTP POST request to defined url
+            //data represents the created values
+            //To fulfill the POST request, the user's inputs to the input fields are captured and inputs are added along with the POST request
+            /*---------------------------------------------------------------------------------------*/
+            //used sources for post reques:
+            //https://blog.logrocket.com/how-to-use-axios-post-requests/
+            //https://www.cloudsigma.com/using-http-client-axios-in-a-react-application-a-tutorial/
+            /*---------------------------------------------------------------------------------------*/
+            axios.post(url, data).then(response => {
+                console.log(response.data);// the response is logged using console.log
+                // alert("data posted successfully");
+                navigate(`/`); //navigate to homepage after submitting the form
 
-            }
-//If an error is encountered, the catch block is executed
+            })
+
+        }
+        //If an error is encountered, the catch block is executed
         catch (error) {
             //Error message is printed to the console
             console.error('Error creating apartment:', error);
             console.log('Error creating apartment:', error);
-             // Error message is displayed to the user with toastify error
+            // Error message is displayed to the user with toastify error
             toast.error('Error creating apartment');
         }
     };
-//if the data value is not defined, loading is displayed on the screen.
+    //if the data value is not defined, loading is displayed on the screen.
     if (!data && id) {
         return <div>loading...</div>
     }
