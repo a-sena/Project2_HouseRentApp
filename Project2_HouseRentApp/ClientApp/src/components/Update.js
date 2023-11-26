@@ -35,11 +35,18 @@ export default function Update() {
                     res => {
                         setData(res.data)
                         console.log(selectedApartement) //information about selected apartmant is printed on console
-                        console.log(res.data);
+                        console.log(res.data);// the response is logged using console.log
 
                     })
+                //If an error occurs during the "then"", error is catched.
+                .catch((err) => {
+                    //Error message is printed to the console
+                    console.error("Error:", err);
+                    console.log("Error:", err);
+                    // Error message is displayed to the user with toastify error
+                    toast.error(`Error: ${err.message}`);
+                });
 
-                .catch(err => console.log("Error:", err)); //If an error occurs during the "then"", error is catched.
         }
         //if id is not found
         else {
@@ -91,39 +98,118 @@ export default function Update() {
     * @returns {boolean} - Returns true if the form data is valid, false otherwise.
     */
     const validation = () => {
+        //React-toastify for input validation
+        //Name is required, if it is not provided, the error message is displayed to user
         if (!data.name) {
-            toast.error('name is required')
+            console.error('Name is required')
+            toast.error('Name is required')
             return false;
         }
+        //The user must provide the address of the house, if not, an error message is displayed
         if (!data.adress) {
-            toast.error('adress is required')
+            console.error('Adress is required')
+            toast.error('Adress is required')
             return false;
         }
-        if (!data.description) {
-            toast.error('description is required')
-            return false;
+        const correctAdresFormat = /^[\w\såøæ]+,\s+[\w\såøæ]+,\s+\d{4}$/;
+        //Example: Elias kræmmersvei, Drammen, 3023
+        if (!correctAdresFormat.test(data.adress)) {
+            console.error("This is not correct format of an adress:", data.adress);
+            toast.error("The adress should be in Street Name, City, Zip Code format.");
+            return;
         }
-        if (!data.firstRentalDate) {
-            toast.error('FirstRentalDate is required')
-            return false;
-        }
-        if (!data.imageUrl1) {
-            toast.error('ImageUrl1 is required')
-            return false;
-
-        }
-        if (!data.numOfRooms || data.numOfRooms < 1 || data.numOfRooms > 9) {
-            toast.error('the RoomNumber must be between 1 and 9');
-            return false;
-        }
+        // The price of house must be defined, if not,the error message is displayed to user
         if (!data.price || data.price < 1) {
+            console.error('the Price must be positive');
             toast.error('the Price must be positive');
             return false;
         }
+        //Information about the size of the house is required.If it is not provided, the error message is displayed to user
         if (!data.square || data.square < 0) {
+            console.error('Square must be positiv number');
             toast.error('Square must be positiv number');
             return false;
         }
+        //Defining first rental date is required, if it is not provided, the error message is displayed to user
+        if (!data.firstRentalDate) {
+            console.error('FirstRentalDate is required')
+            toast.error('FirstRentalDate is required')
+            return false;
+        }
+
+        const checkDateFormat = /^\d{2}\.\d{2}\.\d{4}$/;
+        //DD.MM.YYYY is the correct format
+        if (!checkDateFormat.test(data.firstRentalDate)) {
+            console.error("Invalid date format");
+            toast.error("Please enter a valid date in the format DD.MM.YYYY");
+            return;
+        }
+        //Number of Rooms is required, if it is not provided, the error message is displayed to user
+        if (!data.numOfRooms || data.numOfRooms < 1 || data.numOfRooms > 9) {
+            console.error('the RoomNumber must be between 1 and 9');
+            toast.error('the RoomNumber must be between 1 and 9');
+
+            return false;
+        }
+        //Imageurl1/Image of house is required,
+        //Check whether the img url is entered as input.
+        if (!data.imageUrl1) {
+            console.error('ImgUrl Of Your House is required')
+            toast.error('Image Of House is required. Please provide ImgUrl')
+            return false;
+
+        }
+        //If img url 1 is entered as input, it is checked whether the correct format is entered.
+        const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+        if (!checkImageUrlFormat.test(data.imageUrl1)) {
+            console.error('This is not correct format of an imageurl:', data.imageUrl1);
+            toast.error('Enter the imageUrl of house in "/images/7house.jpg" format');
+            return;
+        }
+         //Imageurl2/Image of livingroom is not required,
+        //If the image url is entered, it is checked whether the formation is correct.
+        if (data.imageUrl2) {
+            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+
+            if (!checkImageUrlFormat.test(data.imageUrl2)) {
+                console.error('This is not correct format of an imageurl:', data.imageUrl2);
+                toast.error('Enter the imageUrl of livingroom in "/images/7house.jpg" format');
+                return;
+            }
+
+        }
+         //Imageurl3/Image of kitchen is not required,
+        //If the image url is entered, it is checked whether the formation is correct.
+
+        if (data.imageUrl3) {
+            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+
+            if (!checkImageUrlFormat.test(data.imageUrl3)) {
+                console.error('This is not correct format of an imageurl:', data.imageUrl3);
+                toast.error('Enter the imageUrl of kitchen in "/images/7house.jpg" format');
+                return;
+            }
+
+        }
+         //Imageurl3/Image of restroom is not required,
+        //If the image url is entered, it is checked whether the formation is correct.
+        if (data.imageUrl4) {
+            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+
+            if (!checkImageUrlFormat.test(data.imageUrl4)) {
+                console.error('This is not correct format of an imageurl:', data.imageUrl4);
+                toast.error('Enter the imageUrl of restroom in "/images/7house.jpg" format');
+                return;
+            }
+        }
+        //Description is required, if it is not provided, the error message is displayed to user
+       
+        if (!data.description) {
+            console.error('Description is required')
+            toast.error('Description is required')
+            return false;
+        }
+
         return true;
     }
     //It is stated what will happen after pressing the Update button with the handleSubmit function.
@@ -140,7 +226,10 @@ export default function Update() {
         //calling e.preventDefault() on the form's submission
         //it prevents the page from refreshing
         //allowing us to handle and process the form without causing the entire page to reload
-        //used source:https://www.shecodes.io/athena/931-why-do-we-need-event-preventdefault-in-javascript
+        /*---------------------------------------------------------------------------------------*/
+        //used source:
+        //https://www.shecodes.io/athena/931-why-do-we-need-event-preventdefault-in-javascript
+        /*---------------------------------------------------------------------------------------*/
         e.preventDefault();
         //if data is not found the error message is written on the console
         if (!data) {
@@ -174,9 +263,9 @@ export default function Update() {
 
 
             
-        
+        //If an error is encountered, the catch block is executed
         } catch (error) {
-
+            //Error message is printed to the console
             console.error('Error updating apartment:', error);
             toast.error('Error  updating apartment');
         }
@@ -202,7 +291,7 @@ export default function Update() {
 
                         </div>
                         <div className="form-group col-6">
-                            <label>Address</label>
+                            <label>Address</label><span className="text-danger">*</span>
 
                             <input type="text" id="adress" value={data.adress}
                                 onChange={handleChange} className="form-control" />
@@ -237,31 +326,31 @@ export default function Update() {
                     </div>
                     <div className="row">
                         <div className="form-group col-3">
-                            <label>Image URL 1</label><span className="text-danger">*</span>
+                            <label>Image Of House</label><span className="text-danger">*</span>
                             <input type="text" id="imageUrl1" value={data.imageUrl1}
                                 onChange={handleChange} className="form-control" />
 
                         </div>
                         <div className="form-group col-3">
-                            <label>Image URL 2</label><span className="text-danger">*</span>
+                            <label>Image Of Livingroom</label>
                             <input type="text" id="imageUrl2" value={data.imageUrl2}
                                 onChange={handleChange} className="form-control" />
 
                         </div>
                         <div className="form-group col-3">
-                            <label>Image URL 3</label><span className="text-danger">*</span>
+                            <label>Image Of Kitchen</label>
                             <input type="text" id="imageUrl3" value={data.imageUrl3}
                                 onChange={handleChange} className="form-control" />
                         </div>
                         <div className="form-group col-3">
-                            <label>Image URL 4</label><span className="text-danger">*</span>
+                            <label>Image Of Restroom</label>
                             <input type="text" id="imageUrl4" value={data.imageUrl4}
                                 onChange={handleChange} className="form-control" />
 
                         </div>
                     </div>
                     <div className="form-group">
-                        <label>Description</label>
+                        <label>Description</label><span className="text-danger">*</span>
                         <input type="text" id="description" value={data.description}
                             onChange={handleChange} className="form-control" />
 
