@@ -78,6 +78,8 @@ export default function Update() {
     //the initial value of data is specified as null,(values in the initialValues variable)
     const [data, setData] = useState(initialValues);
 
+
+
     /**
     * Handles changes to form input fields and updates local state.
     * 
@@ -90,6 +92,7 @@ export default function Update() {
         setData(newData);//updating the state by taking newData
         console.log(newData);
     };
+
     //React-toastify is used for input validation
     /**
     * Validates the form data before submission.

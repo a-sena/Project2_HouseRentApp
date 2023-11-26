@@ -1,12 +1,11 @@
-﻿
-
-import React, { useState, useEffect } from "react";
+﻿import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 
 /**
  * The `Delete` component is responsible for deleting an apartment listing.
@@ -50,6 +49,8 @@ export function Delete() {
 
 
     console.log("This apartment is about to be deleted", data);
+
+
 
     /**
      * Sends a DELETE request for the specified apartment ID.

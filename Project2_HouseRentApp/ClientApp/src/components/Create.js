@@ -81,6 +81,8 @@ export default function Create() {
     const [data, setData] = useState(initialValues);
 
 
+
+
     // Function to handle changes in the form inputs.
     /**
      * Function handleChange:
@@ -132,8 +134,10 @@ export default function Create() {
             toast.error('the Price must be positive');
             return false;
         }
-        if (!data.description) {
-            toast.error('description is required')
+        //Information about the size of the house is required.If it is not provided, the error message is displayed to user
+        if (!data.square || data.square < 0) {
+            console.error('Square must be positiv number');
+            toast.error('Square must be positiv number');
             return false;
         }
         //Defining first rental date is required, if it is not provided, the error message is displayed to user
@@ -163,9 +167,56 @@ export default function Create() {
             console.error('ImgUrl Of Your House is required')
             toast.error('Image Of House is required. Please provide ImgUrl')
             return false;
+
         }
-        if (!data.square || data.square < 0) {
-            toast.error('Square must be positiv number');
+        //If img url 1 is entered as input, it is checked whether the correct format is entered.
+        const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+        if (!checkImageUrlFormat.test(data.imageUrl1)) {
+            console.error('This is not correct format of an imageurl:', data.imageUrl1);
+            toast.error('Enter the imageUrl of house in "/images/7house.jpg" format');
+            return;
+        }
+        //Imageurl2/Image of livingroom is not required,
+        //If the image url is entered, it is checked whether the formation is correct.
+        if (data.imageUrl2) {
+            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+
+            if (!checkImageUrlFormat.test(data.imageUrl2)) {
+                console.error('This is not correct format of an imageurl:', data.imageUrl2);
+                toast.error('Enter the imageUrl of livingroom in "/images/7house.jpg" format');
+                return;
+            }
+
+        }
+        //Imageurl3/Image of kitchen is not required,
+        //If the image url is entered, it is checked whether the formation is correct.
+
+        if (data.imageUrl3) {
+            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+
+            if (!checkImageUrlFormat.test(data.imageUrl3)) {
+                console.error('This is not correct format of an imageurl:', data.imageUrl3);
+                toast.error('Enter the imageUrl of kitchen in "/images/7house.jpg" format');
+                return;
+            }
+
+        }
+        //Imageurl3/Image of restroom is not required,
+        //If the image url is entered, it is checked whether the formation is correct.
+        if (data.imageUrl4) {
+            const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
+
+            if (!checkImageUrlFormat.test(data.imageUrl4)) {
+                console.error('This is not correct format of an imageurl:', data.imageUrl4);
+                toast.error('Enter the imageUrl of restroom in "/images/7house.jpg" format');
+                return;
+            }
+        }
+        //Description is required, if it is not provided, the error message is displayed to user
+
+        if (!data.description) {
+            console.error('Description is required')
+            toast.error('Description is required')
             return false;
         }
 
