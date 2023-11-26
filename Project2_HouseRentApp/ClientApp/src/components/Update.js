@@ -6,10 +6,14 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
-
-
+/**
+ * The Update component provides a form to update the details of an existing apartment listing.
+ * It retrieves the apartment's current data based on the ID from the URL parameters and pre-fills the form.
+ * The form allows the user to modify the details and submit them. 
+ * Form validation and submission are handled within the component, with feedback provided via toast notifications.
+ *
+ * @returns A React element that renders the update form for an apartment listing.
+ */
 
 export default function Update() {
 
@@ -20,7 +24,7 @@ export default function Update() {
     //to navigate back to home page React useNavigation Hook is used
     const navigate = useNavigate();
 
-     //we use axious get call using useEffect. we are sending get request to url with spesific apartment id
+    //we use axious get call using useEffect. we are sending get request to url with spesific apartment id
     //"then" we set data, we create a data with response.data
     useEffect(() => {
         //if id is found
@@ -74,8 +78,11 @@ export default function Update() {
     //the initial value of data is specified as null,(values in the initialValues variable)
     const [data, setData] = useState(initialValues);
 
-
-
+    /**
+    * Handles changes to form input fields and updates local state.
+    * 
+    * @param {React.ChangeEvent<HTMLInputElement>} e - The change event from the input field.
+    */
     const handleChange = (e) => {
         const newData = { ...data };
         // e.target.value = The target value is the value the user enters in the input field
@@ -83,7 +90,13 @@ export default function Update() {
         setData(newData);//updating the state by taking newData
         console.log(newData);
     };
-     //React-toastify is used for input validation 
+    //React-toastify is used for input validation
+    /**
+    * Validates the form data before submission.
+    * Displays toast notifications to alert the user of any validation errors.
+    * 
+    * @returns {boolean} - Returns true if the form data is valid, false otherwise.
+    */
     const validation = () => {
         //React-toastify for input validation
         //Name is required, if it is not provided, the error message is displayed to user
@@ -153,7 +166,7 @@ export default function Update() {
             toast.error('Enter the imageUrl of house in "/images/7house.jpg" format');
             return;
         }
-         //Imageurl2/Image of livingroom is not required,
+        //Imageurl2/Image of livingroom is not required,
         //If the image url is entered, it is checked whether the formation is correct.
         if (data.imageUrl2) {
             const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
@@ -165,7 +178,7 @@ export default function Update() {
             }
 
         }
-         //Imageurl3/Image of kitchen is not required,
+        //Imageurl3/Image of kitchen is not required,
         //If the image url is entered, it is checked whether the formation is correct.
 
         if (data.imageUrl3) {
@@ -178,7 +191,7 @@ export default function Update() {
             }
 
         }
-         //Imageurl3/Image of restroom is not required,
+        //Imageurl3/Image of restroom is not required,
         //If the image url is entered, it is checked whether the formation is correct.
         if (data.imageUrl4) {
             const checkImageUrlFormat = /^(https?|ftp):\/\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)|\/[^\s/$.?#].[^\s]*\.(jpg|jpeg|png|gif|bmp)$/;
@@ -190,7 +203,7 @@ export default function Update() {
             }
         }
         //Description is required, if it is not provided, the error message is displayed to user
-       
+
         if (!data.description) {
             console.error('Description is required')
             toast.error('Description is required')
@@ -201,6 +214,14 @@ export default function Update() {
     }
     //It is stated what will happen after pressing the Update button with the handleSubmit function.
     //submitting the form asynchronously with handleSubmit
+
+    /**
+     * Handles form submission to update the apartment listing.
+     * Prevents default form submission, validates the form, and sends the updated data to the server.
+     * On success, redirects the user to the home page.
+     * 
+     * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
+     */
     const handleSubmit = async (e) => { // async function is passed for asynchronous validation.
         //calling e.preventDefault() on the form's submission
         //it prevents the page from refreshing
@@ -223,33 +244,33 @@ export default function Update() {
         //if validation is succeded the data is written on the console
         console.log(data);
         try {
-            
-                const url = "https://localhost:5001/Update/{data.id}"; //this URL must match the Route value of update function in the controller
-                //sending http put request to defined url
-                //the data represents the updated value
-                axios.put(url, data).then((response) => {
-                    console.log(response.data);
-                    // alert("data uppdated successfully");
 
-                    navigate(`/`);
-                })
+            const url = "https://localhost:5001/Update/{data.id}"; //this URL must match the Route value of update function in the controller
+            //sending http put request to defined url
+            //the data represents the updated value
+            axios.put(url, data).then((response) => {
+                console.log(response.data);
+                // alert("data uppdated successfully");
 
-                //navigate to homepage after submitting the form
+                navigate(`/`);
+            })
+
+            //navigate to homepage after submitting the form
             axios.get("https://localhost:5001/Apartment").then(() => {
                 alert("The post is updated successfully.");
-                    navigate(`/`); 
-                })
+                navigate(`/`);
+            })
 
 
-            
-        //If an error is encountered, the catch block is executed
+
+            //If an error is encountered, the catch block is executed
         } catch (error) {
             //Error message is printed to the console
             console.error('Error updating apartment:', error);
             toast.error('Error  updating apartment');
         }
     };
-       //if the data value is not defined, Loading is displayed on the screen.
+    //if the data value is not defined, Loading is displayed on the screen.
     if (!data && id) {
         return <div>loading...</div>
     }
