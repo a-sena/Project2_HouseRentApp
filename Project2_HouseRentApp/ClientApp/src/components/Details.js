@@ -3,7 +3,8 @@ import axios from 'axios';
 import { useParams } from "react-router-dom";
 import { Image, Icon } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export function Details() {
     //useParams is used to access id parameter from the URL
     const { id } = useParams()
@@ -19,8 +20,12 @@ export function Details() {
         axios.get("https://localhost:5001/Apartment/" + id)
             .then(res => setDetails(res.data))
             //If an error is encountered, the catch block is executed
-            .catch(err => console.log("Error:", err)) 
-
+            .catch((err) => {
+              //Error message is printed to the console
+                console.log("Error:", err);
+                // Error message is displayed to the user with toastify error
+                toast.error(`Error: ${err.message}`);
+            });
     }, [id]);
 
     return (

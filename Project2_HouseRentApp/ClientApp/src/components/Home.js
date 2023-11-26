@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { Image, Button, Card, Icon } from 'semantic-ui-react';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export function Home() {
     
     //useState React Hooks is used to track the value in input
@@ -25,9 +26,10 @@ export function Home() {
         })
         //If an error is encountered, the catch block is executed
             .catch((error) => {
-                //Error message is written to the console
+                //Error message is written to the console,console logging
                 console.error('Error :', error);
-
+                // Error message is displayed to the user with toastify error
+                toast.error('Error deleting apartment');
             });
     }, []);
     //if the table value is not defined, Loading is displayed on the screen.

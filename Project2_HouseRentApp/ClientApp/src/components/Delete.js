@@ -5,7 +5,8 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import {  Button } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
-
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export function Delete() {
 
@@ -29,7 +30,13 @@ export function Delete() {
             axios.get("https://localhost:5001/Apartment/" + apartmentId)
             .then(res => {setData(res.data); 
                 })
-            .catch(err => console.log(err)); //if an error occurs, catch handels the error and write on the console.
+                //If an error occurs during the "then"", error is catched.
+            .catch((err) => {
+                 //Error message is printed to the console
+                 console.error("Error:", err);
+                 
+
+            });
        },[id]);
 
    
@@ -38,13 +45,17 @@ export function Delete() {
     
     const handleDelete = (id) => {
         //Delete request with axious
-        axios.delete(`https://localhost:5001/Delete/${id}`)
-           
-               
-            .catch((error) => {
-                console.error('Error deleting apartment:', error);
-               // toast.error('Error deleting apartment');
-            });
+        try {
+            axios.delete(`https://localhost:5001/Delete/${id}`)
+
+
+        } catch (error) {
+            //Error message is printed to the console
+            console.log('Error deleting apartment:', error);
+            // Error message is displayed to the user with toastify error
+            toast.error('Error deleting apartment');
+        }
+    
 
         alert("The apartment  is deleted successfully.");
         navigate("/");
