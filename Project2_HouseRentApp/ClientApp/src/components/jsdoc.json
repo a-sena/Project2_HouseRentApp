@@ -1,0 +1,10 @@
+{
+  "source": {
+    "include": ["."], // Path to the React components
+    "includePattern": ".+\\.js$", // include .js files
+    "excludePattern": "(^|\\/|\\\\)_"
+  },
+  "opts": {
+    "destination": "../../docs/" // Output directory for the documentation
+  }
+}

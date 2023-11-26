@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Delete.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Delete.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿
+
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate, useParams } from "react-router-dom";
+import { Button } from 'semantic-ui-react';
+import { Link } from "react-router-dom";
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+/**
+ * The `Delete` component is responsible for deleting an apartment listing.
+ * It fetches the apartment details based on the ID from the URL and presents them to the user.
+ * Upon confirmation, it sends a DELETE request to the server to remove the apartment.
+ *
+ * @returns A React element that displays the apartment's details with a delete confirmation button.
+ */
+export function Delete() {
+
+    //useParams gets the ID from the website's route
+    const { id } = useParams();
+    console.log(id);
+
+
+    //useState React Hooks is used to track the data value
+    //the initial value of data is specified as empty
+    const [data, setData] = useState({});
+
+    //to navigate back to home page React useNavigation Hook is used
+    const navigate = useNavigate();
+
+    // We used useEffect to axious http get call. we are sending get request to url with spesific apartment id
+    //In this way, information about a specific apartmant is obtained from the server 
+    useEffect(() => {
+
+        var apartmentId = parseInt(id, 10); //Converting the id variable to integer
+        axios.get("https://localhost:5001/Apartment/" + apartmentId)
+            .then(res => {
+                setData(res.data);
+            })
+            //If an error occurs during the "then"", error is catched.
+            .catch((err) => {
+                //Error message is printed to the console
+                console.error("Error:", err);
+
+
+            });
+    }, [id]);
+
+
+
+    console.log("This apartment is about to be deleted", data);
+
+    /**
+     * Sends a DELETE request for the specified apartment ID.
+     * After a successful delete, it navigates back to the home page.
+     *
+     * @param {number} id - The ID of the apartment to be deleted.
+     */
+
+    const handleDelete = (id) => {
+        //Delete request with axious
+        try {
+            axios.delete(`https://localhost:5001/Delete/${id}`)
+
+
+        } catch (error) {
+            //Error message is printed to the console
+            console.log('Error deleting apartment:', error);
+            // Error message is displayed to the user with toastify error
+            toast.error('Error deleting apartment');
+        }
+
+
+        alert("The apartment  is deleted successfully.");
+        navigate("/");
+
+    };
+
+
+
+
+
+
+    return (
+        &lt;div className="container py-4">
+
+            &lt;h1 className="display-4">Apartment id: {id}&lt;/h1>
+
+            &lt;ul className="list-group w-50">
+
+                &lt;li className="list-group-item">&lt;span style={{ fontWeight: "bold" }}>Name:&lt;/span> {data.name}&lt;/li>
+                &lt;li className="list-group-item">&lt;span style={{ fontWeight: "bold" }}>Address: &lt;/span>{data.adress}&lt;/li>
+                &lt;li className="list-group-item">&lt;span style={{ fontWeight: "bold" }}>Price:&lt;/span> $ {data.price}&lt;/li>
+                &lt;li className="list-group-item">&lt;span style={{ fontWeight: "bold" }}>Square:&lt;/span> {data.square} m&amp;sup2;&lt;/li>
+                &lt;li className="list-group-item">&lt;span style={{ fontWeight: "bold" }}>FirstRentalDate:&lt;/span> {data.firstRentalDate}&lt;/li>
+                &lt;li className="list-group-item">&lt;span style={{ fontWeight: "bold" }}>NumOfRooms:&lt;/span> {data.numOfRooms}&lt;/li>
+                &lt;li className="list-group-item">&lt;span style={{ fontWeight: "bold" }}>Description:&lt;/span> {data.description}&lt;/li>
+            &lt;/ul>
+
+            &lt;div className="row" style={{ marginLeft: '60px', marginTop: '20px' }}>
+                &lt;div className="col-2">
+                    &lt;Button
+
+                        name={data.id}
+                        color="red"
+                        onClick={() => handleDelete(data.id)}
+                        fluid > Delete
+                    &lt;/Button>
+                &lt;/div>
+                &lt;div className="col-2">
+
+                    &lt;Link to="/">
+                        &lt;Button
+                            name={data.id}
+                            color="grey"
+
+                            fluid> Back to Home Page&lt;/Button>
+
+                    &lt;/Link>
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    )
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Layout.html">Layout</a></li><li><a href="NavMenu.html">NavMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Delete">Delete</a></li><li><a href="global.html#Home">Home</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Nov 26 2023 22:40:29 GMT+0100 (sentraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

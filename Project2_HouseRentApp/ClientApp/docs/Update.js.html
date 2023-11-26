@@ -1,4 +1,32 @@
-﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Update.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Update.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -81,7 +109,7 @@ export default function Update() {
     /**
     * Handles changes to form input fields and updates local state.
     * 
-    * @param {React.ChangeEvent<HTMLInputElement>} e - The change event from the input field.
+    * @param {React.ChangeEvent&lt;HTMLInputElement>} e - The change event from the input field.
     */
     const handleChange = (e) => {
         const newData = { ...data };
@@ -119,13 +147,13 @@ export default function Update() {
             return;
         }
         // The price of house must be defined, if not,the error message is displayed to user
-        if (!data.price || data.price < 1) {
+        if (!data.price || data.price &lt; 1) {
             console.error('the Price must be positive');
             toast.error('the Price must be positive');
             return false;
         }
         //Information about the size of the house is required.If it is not provided, the error message is displayed to user
-        if (!data.square || data.square < 0) {
+        if (!data.square || data.square &lt; 0) {
             console.error('Square must be positiv number');
             toast.error('Square must be positiv number');
             return false;
@@ -145,7 +173,7 @@ export default function Update() {
             return;
         }
         //Number of Rooms is required, if it is not provided, the error message is displayed to user
-        if (!data.numOfRooms || data.numOfRooms < 1 || data.numOfRooms > 9) {
+        if (!data.numOfRooms || data.numOfRooms &lt; 1 || data.numOfRooms > 9) {
             console.error('the RoomNumber must be between 1 and 9');
             toast.error('the RoomNumber must be between 1 and 9');
 
@@ -220,7 +248,7 @@ export default function Update() {
      * Prevents default form submission, validates the form, and sends the updated data to the server.
      * On success, redirects the user to the home page.
      * 
-     * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
+     * @param {React.FormEvent&lt;HTMLFormElement>} e - The form submission event.
      */
     const handleSubmit = async (e) => { // async function is passed for asynchronous validation.
         //calling e.preventDefault() on the form's submission
@@ -271,99 +299,122 @@ export default function Update() {
         }
     };
     //if the data value is not defined, Loading is displayed on the screen.
-    if (!data && id) {
-        return <div>loading...</div>
+    if (!data &amp;&amp; id) {
+        return &lt;div>loading...&lt;/div>
     }
 
     return (
-        <div>
+        &lt;div>
 
-            <div>
-                <h2>Update Your Apartment</h2>
-                <form className="create-form" onSubmit={handleSubmit} >
-                    <div className="row">
-                        <div className="form-group col-6">
-                            <label>Name</label>
-                            <span className="text-danger">*</span>
+            &lt;div>
+                &lt;h2>Update Your Apartment&lt;/h2>
+                &lt;form className="create-form" onSubmit={handleSubmit} >
+                    &lt;div className="row">
+                        &lt;div className="form-group col-6">
+                            &lt;label>Name&lt;/label>
+                            &lt;span className="text-danger">*&lt;/span>
 
-                            <input type="text" id='name' value={data.name}
+                            &lt;input type="text" id='name' value={data.name}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                        <div className="form-group col-6">
-                            <label>Address</label><span className="text-danger">*</span>
+                        &lt;/div>
+                        &lt;div className="form-group col-6">
+                            &lt;label>Address&lt;/label>&lt;span className="text-danger">*&lt;/span>
 
-                            <input type="text" id="adress" value={data.adress}
+                            &lt;input type="text" id="adress" value={data.adress}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-3">
-                            <label>Price</label><span className="text-danger">*</span>
-                            <input type="number" id="price" value={data.price}
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div className="row">
+                        &lt;div className="form-group col-3">
+                            &lt;label>Price&lt;/label>&lt;span className="text-danger">*&lt;/span>
+                            &lt;input type="number" id="price" value={data.price}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                        <div className="form-group col-3">
-                            <label>Square</label><span className="text-danger">*</span>
-                            <input type="number" id="square" value={data.square}
+                        &lt;/div>
+                        &lt;div className="form-group col-3">
+                            &lt;label>Square&lt;/label>&lt;span className="text-danger">*&lt;/span>
+                            &lt;input type="number" id="square" value={data.square}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                        <div className="form-group col-3">
-                            <label>First Rental Date</label><span className="text-danger">*</span>
-                            <input type="text" id="firstRentalDate" value={data.firstRentalDate}
+                        &lt;/div>
+                        &lt;div className="form-group col-3">
+                            &lt;label>First Rental Date&lt;/label>&lt;span className="text-danger">*&lt;/span>
+                            &lt;input type="text" id="firstRentalDate" value={data.firstRentalDate}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                        <div className="form-group col-3">
-                            <label>Number of Rooms</label><span className="text-danger">*</span>
-                            <input type="number" id="numOfRooms" value={data.numOfRooms}
+                        &lt;/div>
+                        &lt;div className="form-group col-3">
+                            &lt;label>Number of Rooms&lt;/label>&lt;span className="text-danger">*&lt;/span>
+                            &lt;input type="number" id="numOfRooms" value={data.numOfRooms}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-3">
-                            <label>Image Of House</label><span className="text-danger">*</span>
-                            <input type="text" id="imageUrl1" value={data.imageUrl1}
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div className="row">
+                        &lt;div className="form-group col-3">
+                            &lt;label>Image Of House&lt;/label>&lt;span className="text-danger">*&lt;/span>
+                            &lt;input type="text" id="imageUrl1" value={data.imageUrl1}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                        <div className="form-group col-3">
-                            <label>Image Of Livingroom</label>
-                            <input type="text" id="imageUrl2" value={data.imageUrl2}
+                        &lt;/div>
+                        &lt;div className="form-group col-3">
+                            &lt;label>Image Of Livingroom&lt;/label>
+                            &lt;input type="text" id="imageUrl2" value={data.imageUrl2}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                        <div className="form-group col-3">
-                            <label>Image Of Kitchen</label>
-                            <input type="text" id="imageUrl3" value={data.imageUrl3}
+                        &lt;/div>
+                        &lt;div className="form-group col-3">
+                            &lt;label>Image Of Kitchen&lt;/label>
+                            &lt;input type="text" id="imageUrl3" value={data.imageUrl3}
                                 onChange={handleChange} className="form-control" />
-                        </div>
-                        <div className="form-group col-3">
-                            <label>Image Of Restroom</label>
-                            <input type="text" id="imageUrl4" value={data.imageUrl4}
+                        &lt;/div>
+                        &lt;div className="form-group col-3">
+                            &lt;label>Image Of Restroom&lt;/label>
+                            &lt;input type="text" id="imageUrl4" value={data.imageUrl4}
                                 onChange={handleChange} className="form-control" />
 
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label>Description</label><span className="text-danger">*</span>
-                        <input type="text" id="description" value={data.description}
+                        &lt;/div>
+                    &lt;/div>
+                    &lt;div className="form-group">
+                        &lt;label>Description&lt;/label>&lt;span className="text-danger">*&lt;/span>
+                        &lt;input type="text" id="description" value={data.description}
                             onChange={handleChange} className="form-control" />
 
-                    </div>
+                    &lt;/div>
 
-                    <br />
-                    <button type="submit" className="btn btn-primary">Update</button>
-                    <a href="/" className="btn btn-secondary">Back</a>
-                </form>
+                    &lt;br />
+                    &lt;button type="submit" className="btn btn-primary">Update&lt;/button>
+                    &lt;a href="/" className="btn btn-secondary">Back&lt;/a>
+                &lt;/form>
 
-            </div>
-            <ToastContainer />
-        </div>
+            &lt;/div>
+            &lt;ToastContainer />
+        &lt;/div>
 
     )
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Layout.html">Layout</a></li><li><a href="NavMenu.html">NavMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Delete">Delete</a></li><li><a href="global.html#Home">Home</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Nov 26 2023 22:40:29 GMT+0100 (sentraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

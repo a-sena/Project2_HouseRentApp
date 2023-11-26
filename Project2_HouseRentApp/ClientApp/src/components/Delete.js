@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import {  Button } from 'semantic-ui-react';
+import { Button } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -17,37 +17,38 @@ import 'react-toastify/dist/ReactToastify.css';
  */
 export function Delete() {
 
- //useParams gets the ID from the website's route
+    //useParams gets the ID from the website's route
     const { id } = useParams();
     console.log(id);
-   
-  
+
+
     //useState React Hooks is used to track the data value
     //the initial value of data is specified as empty
     const [data, setData] = useState({});
 
-   //to navigate back to home page React useNavigation Hook is used
+    //to navigate back to home page React useNavigation Hook is used
     const navigate = useNavigate();
 
-// We used useEffect to axious http get call. we are sending get request to url with spesific apartment id
-//In this way, information about a specific apartmant is obtained from the server 
+    // We used useEffect to axious http get call. we are sending get request to url with spesific apartment id
+    //In this way, information about a specific apartmant is obtained from the server 
     useEffect(() => {
-        
-            var apartmentId = parseInt(id, 10); //Converting the id variable to integer
-            axios.get("https://localhost:5001/Apartment/" + apartmentId)
-            .then(res => {setData(res.data); 
-                })
-                //If an error occurs during the "then"", error is catched.
+
+        var apartmentId = parseInt(id, 10); //Converting the id variable to integer
+        axios.get("https://localhost:5001/Apartment/" + apartmentId)
+            .then(res => {
+                setData(res.data);
+            })
+            //If an error occurs during the "then"", error is catched.
             .catch((err) => {
-                 //Error message is printed to the console
-                 console.error("Error:", err);
-                 
+                //Error message is printed to the console
+                console.error("Error:", err);
+
 
             });
-       },[id]);
+    }, [id]);
 
-   
-   
+
+
     console.log("This apartment is about to be deleted", data);
 
     /**
@@ -56,7 +57,7 @@ export function Delete() {
      *
      * @param {number} id - The ID of the apartment to be deleted.
      */
-    
+
     const handleDelete = (id) => {
         //Delete request with axious
         try {
@@ -69,7 +70,7 @@ export function Delete() {
             // Error message is displayed to the user with toastify error
             toast.error('Error deleting apartment');
         }
-    
+
 
         alert("The apartment  is deleted successfully.");
         navigate("/");
@@ -77,17 +78,17 @@ export function Delete() {
     };
 
 
-               
-           
-        
-    
-    return(
-    <div className="container py-4">
 
-        <h1 className="display-4">Apartment id: {id}</h1>
+
+
+
+    return (
+        <div className="container py-4">
+
+            <h1 className="display-4">Apartment id: {id}</h1>
 
             <ul className="list-group w-50">
-              
+
                 <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Name:</span> {data.name}</li>
                 <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Address: </span>{data.adress}</li>
                 <li className="list-group-item"><span style={{ fontWeight: "bold" }}>Price:</span> $ {data.price}</li>
@@ -99,12 +100,12 @@ export function Delete() {
 
             <div className="row" style={{ marginLeft: '60px', marginTop: '20px' }}>
                 <div className="col-2">
-            <Button
+                    <Button
 
-                name={data.id}
-                color="red"
-                    onClick={() => handleDelete(data.id)}
-                    fluid > Delete
+                        name={data.id}
+                        color="red"
+                        onClick={() => handleDelete(data.id)}
+                        fluid > Delete
                     </Button>
                 </div>
                 <div className="col-2">
@@ -115,8 +116,8 @@ export function Delete() {
                             color="grey"
 
                             fluid> Back to Home Page</Button>
-                    
-                </Link>
+
+                    </Link>
                 </div>
             </div>
         </div>

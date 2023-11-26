@@ -1,16 +1,10 @@
 ﻿import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useParams, Link } from "react-router-dom";
-import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
+import { useParams } from "react-router-dom";
+import { Image, Icon } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
-
-/**
- * The `Details` component fetches and displays the details of a specific apartment.
- * It uses the apartment ID from the URL parameters to fetch data from the server and displays it in a detailed view.
- * This view includes a carousel of images and information about the apartment.
- *
- * @returns A React element that renders the detailed view of an apartment.
- */
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export function Details() {
     //useParams is used to access id parameter from the URL
     const { id } = useParams()
@@ -25,9 +19,13 @@ export function Details() {
         //axious http get call
         axios.get("https://localhost:5001/Apartment/" + id)
             .then(res => setDetails(res.data))
-
-            .catch(err => console.log(err))
-
+            //If an error is encountered, the catch block is executed
+            .catch((err) => {
+              //Error message is printed to the console
+                console.log("Error:", err);
+                // Error message is displayed to the user with toastify error
+                toast.error(`Error: ${err.message}`);
+            });
     }, [id]);
 
     return (

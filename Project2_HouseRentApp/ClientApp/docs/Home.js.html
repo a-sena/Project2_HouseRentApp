@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Home.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Home.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { Link } from "react-router-dom";
+import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
+
+/**
+ * The "Home" component fetches and displays a list of property listings from the '/Apartment' endpoint.
+ * It displays a loading message until the data is fetched. Once data is available, it renders the property listings
+ * along with options to create, view, edit, and delete individual listings.
+ * If the data has not been fetched, it displays a loading indicator.
+ *
+ * @returns The Home component rendered as a list of Card components for each property listing, 
+ * with additional controls for creating and managing listings.
+ */
+export function Home() {
+
+    const [table, setTable] = useState(null);
+    const url = "https://localhost:5001/Apartment"; //this URL must match the Route value in the controller
+
+    //we use axious get call using useEffect. we are sending get request to url
+    //"then" we set a table we create a table with response.data
+    useEffect(() => {
+        axios.get(url).then((response) => {
+            console.log(response.data)
+            setTable(response.data);
+        });
+    }, []);
+    //if the table value is not defined, Loading is displayed on the screen.
+    if (!table) {
+        return &lt;div>Loading...&lt;/div>;
+    }
+
+    return (
+        &lt;div>
+            &lt;h1>Explore and manage your property listings easily with HouseRent App.&lt;/h1>
+            &lt;h3> &lt;i> - your nr.one destination for rental postings! &lt;/i>&lt;/h3>
+
+            {/*"Create" button*/}
+            &lt;div style={{ marginBottom: '20px' }} className="col-md-2">
+
+                &lt;Link to={"/create"}>
+                    &lt;Button
+
+                        name={table.id}
+                        size="huge"
+                        color="green"
+
+
+                        fluid > &lt;Icon name='plus' />
+                        Create
+                    &lt;/Button> &lt;/Link>
+            &lt;/div>
+
+
+            &lt;h2>Houses published by you:&lt;/h2>
+            &lt;hr />
+            {/** semantic-ui's Card is used to display the site content meanly the apartments  in a card view */}
+            &lt;Card.Group itemsPerRow="3" > {/*the number of items in each row is specified as 3 */}
+                {/* map() is used to loop all the houses in the database.*/}
+                {table.map((item) =>
+
+                (
+                    &lt;Card key={item.id}>
+
+
+                        &lt;Image src={item.imageUrl1} size='large' />
+
+                        &lt;Card.Content>
+
+                            &lt;div style={{ display: 'flex', flexDirection: 'column' }}>
+
+                                &lt;Card.Meta style={{ textAlign: 'right', marginBottom: '0' }}>{item.adress}&lt;/Card.Meta>
+                                &lt;Card.Header as='h5' style={{ textAlign: 'left', marginTop: '10px' }}>{item.name}&lt;/Card.Header>
+
+
+
+
+                            &lt;/div>
+
+
+                        &lt;/Card.Content>
+                        &lt;Card.Content>
+                            {/* Information about house size,number of rooms, first rental date, price is also addded on the each card*/}
+                            &lt;div className="row">
+                                {/* Information about house size*/}
+                                &lt;div className="col-4">
+                                    &lt;Icon name="home" />
+                                    &lt;span>{item.square} m&amp;sup2;&lt;/span>
+                                &lt;/div>
+                                {/* Information about price*/}
+                                &lt;div className="col">
+                                    &lt;Icon name="dollar sign" />
+                                    &lt;span>{item.price}&lt;/span>
+                                &lt;/div>
+
+                            &lt;/div>
+                            {/* Information about number of rooms*/}
+                            &lt;div className="row">
+                                &lt;div className="col-4">
+                                    &lt;Icon name="bed" />
+                                    &lt;span>{item.numOfRooms}&lt;/span>
+                                &lt;/div>
+                                {/* Information about first rental date*/}
+                                &lt;div className="col">
+                                    &lt;Icon name="calendar" />
+                                    &lt;span>{item.firstRentalDate}&lt;/span>
+                                &lt;/div>
+
+                            &lt;/div>
+
+                        &lt;/Card.Content>
+
+                        &lt;Card.Content extra>
+                            {/* View button that directs the user to the details page*/}
+                            &lt;div className="row">
+                                &lt;div className="col-md-4">
+                                    &lt;Link to={`/${item.id}`}>
+                                        &lt;Button
+
+                                            name={table.id}
+
+                                            color="blue"
+
+
+                                            fluid > View &lt;/Button> &lt;/Link>
+                                &lt;/div>
+                                {/* Edit button that directs users to the page where they can update their home listings*/}
+                                &lt;div className="col-md-4">
+                                    &lt;Link to={`/update/${item.id}`}>
+                                        &lt;Button
+
+                                            name={item.id}
+                                            color="grey"
+
+                                            fluid > Edit &lt;/Button>&lt;/Link>
+                                &lt;/div>
+                                {/* Delete button that directs users to the page where they can delete their home listing*/}
+                                &lt;div className="col-md-4">
+                                    &lt;Link to={`/delete/${item.id}`}>
+                                        &lt;Button
+
+                                            name={item.id}
+                                            color="red"
+
+                                            fluid > Delete&lt;/Button>&lt;/Link>
+
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/Card.Content>
+
+                    &lt;/Card>
+                ))}
+            &lt;/Card.Group>
+        &lt;/div>
+    );
+}
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Layout.html">Layout</a></li><li><a href="NavMenu.html">NavMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Delete">Delete</a></li><li><a href="global.html#Home">Home</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Sun Nov 26 2023 22:40:29 GMT+0100 (sentraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
