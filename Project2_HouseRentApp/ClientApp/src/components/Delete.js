@@ -6,7 +6,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import {  Button } from 'semantic-ui-react';
 import { Link } from "react-router-dom";
 
-
+/**
+ * The `Delete` component is responsible for deleting an apartment listing.
+ * It fetches the apartment details based on the ID from the URL and presents them to the user.
+ * Upon confirmation, it sends a DELETE request to the server to remove the apartment.
+ *
+ * @returns A React element that displays the apartment's details with a delete confirmation button.
+ */
 export function Delete() {
 
  //useParams gets the ID from the website's route
@@ -35,6 +41,13 @@ export function Delete() {
    
    
     console.log("This apartment is about to be deleted", data);
+
+    /**
+     * Sends a DELETE request for the specified apartment ID.
+     * After a successful delete, it navigates back to the home page.
+     *
+     * @param {number} id - The ID of the apartment to be deleted.
+     */
     
     const handleDelete = (id) => {
         //Delete request with axious

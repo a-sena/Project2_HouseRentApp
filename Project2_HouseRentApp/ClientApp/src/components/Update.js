@@ -6,10 +6,14 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
-
-
+/**
+ * The Update component provides a form to update the details of an existing apartment listing.
+ * It retrieves the apartment's current data based on the ID from the URL parameters and pre-fills the form.
+ * The form allows the user to modify the details and submit them. 
+ * Form validation and submission are handled within the component, with feedback provided via toast notifications.
+ *
+ * @returns A React element that renders the update form for an apartment listing.
+ */
 
 export default function Update() {
 
@@ -67,8 +71,11 @@ export default function Update() {
     //the initial value of data is specified as null,(values in the initialValues variable)
     const [data, setData] = useState(initialValues);
 
-
-
+    /**
+    * Handles changes to form input fields and updates local state.
+    * 
+    * @param {React.ChangeEvent<HTMLInputElement>} e - The change event from the input field.
+    */
     const handleChange = (e) => {
         const newData = { ...data };
         // e.target.value = The target value is the value the user enters in the input field
@@ -76,7 +83,13 @@ export default function Update() {
         setData(newData);//updating the state by taking newData
         console.log(newData);
     };
-     //React-toastify is used for input validation 
+    //React-toastify is used for input validation
+    /**
+    * Validates the form data before submission.
+    * Displays toast notifications to alert the user of any validation errors.
+    * 
+    * @returns {boolean} - Returns true if the form data is valid, false otherwise.
+    */
     const validation = () => {
         if (!data.name) {
             toast.error('name is required')
@@ -115,6 +128,14 @@ export default function Update() {
     }
     //It is stated what will happen after pressing the Update button with the handleSubmit function.
     //submitting the form asynchronously with handleSubmit
+
+    /**
+     * Handles form submission to update the apartment listing.
+     * Prevents default form submission, validates the form, and sends the updated data to the server.
+     * On success, redirects the user to the home page.
+     * 
+     * @param {React.FormEvent<HTMLFormElement>} e - The form submission event.
+     */
     const handleSubmit = async (e) => { // async function is passed for asynchronous validation.
         //calling e.preventDefault() on the form's submission
         //it prevents the page from refreshing

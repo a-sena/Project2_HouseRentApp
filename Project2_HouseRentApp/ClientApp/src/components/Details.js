@@ -4,6 +4,13 @@ import { useParams, Link } from "react-router-dom";
 import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
 
+/**
+ * The `Details` component fetches and displays the details of a specific apartment.
+ * It uses the apartment ID from the URL parameters to fetch data from the server and displays it in a detailed view.
+ * This view includes a carousel of images and information about the apartment.
+ *
+ * @returns A React element that renders the detailed view of an apartment.
+ */
 export function Details() {
     //useParams is used to access id parameter from the URL
     const { id } = useParams()

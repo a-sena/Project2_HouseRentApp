@@ -7,10 +7,14 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-
-
-
-
+/**
+ * The "Create" component provides a form for creating new apartment listings.
+ * It manages form state with local state hooks and handles form submission.
+ * If an apartment ID is provided via URL parameters, the component will fetch the data for that
+ * apartment and fill in the form to allow editing.
+ *
+ * @returns A React element that renders a form for creating or editing apartment listings.
+ */
 export default function Create() {
 
     let [selectedApartement, setSelectedApartment] = useState(null);
@@ -68,7 +72,13 @@ export default function Create() {
     const [data, setData] = useState(initialValues);
 
 
-
+    // Function to handle changes in the form inputs.
+    /**
+     * Function handleChange:
+     * Handles changes to form input fields and updates local state.
+     * 
+     * @param {React.ChangeEvent<HTMLInputElement>} e The input change event.
+     */
 
     const handleChange = (e) => {
         const newData = { ...data };
@@ -78,6 +88,13 @@ export default function Create() {
         console.log(newData);
     };
 
+    // Function to validate form inputs.
+    /**
+     * Validates the form data before submission.
+     * Uses toast notifications to alert the user of validation errors.
+     * 
+     * @returns {boolean} True if the form data is valid, false otherwise.
+     */
     const validation = () => {
     //React-toastify for input validation 
         if (!data.name) {
@@ -116,6 +133,15 @@ export default function Create() {
         return true;
     }
     //It is stated what will happen after pressing the Update button with the handleSubmit function.
+
+    // Function to handle form submission.
+    /**
+     * Handles form submission for creating or updating an apartment listing.
+     * Prevents the default form submission event, validates the form data, and
+     * submits the data to the server. Navigates to the home page on successful submission.
+     * 
+     * @param {React.FormEvent<HTMLFormElement>} e The form submission event.
+     */
     const handleSubmit = async (e) => {
         //calling e.preventDefault() on the form's submission
         //it prevents the page from refreshing

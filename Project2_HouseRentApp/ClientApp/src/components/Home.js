@@ -3,14 +3,17 @@ import axios from 'axios';
 import { Link } from "react-router-dom";
 import { Image, Button, Card, Grid, Icon } from 'semantic-ui-react';
 
+/**
+ * The "Home" component fetches and displays a list of property listings from the '/Apartment' endpoint.
+ * It displays a loading message until the data is fetched. Once data is available, it renders the property listings
+ * along with options to create, view, edit, and delete individual listings.
+ * If the data has not been fetched, it displays a loading indicator.
+ *
+ * @returns The Home component rendered as a list of Card components for each property listing, 
+ * with additional controls for creating and managing listings.
+ */
 export function Home() {
-    
-    //useState React Hooks is used to track the value in input
-    //table, setTable are to insert data into
-    //the "table"holds the current value of the state
-    //the initial value of table is specified as null
-    //the "setTable""sets that value
-    
+       
     const [table, setTable] = useState(null);
     const url = "https://localhost:5001/Apartment"; //this URL must match the Route value in the controller
   
@@ -51,9 +54,9 @@ export function Home() {
 
             <h2>Houses published by you:</h2>
             <hr />
-            {/*semantic-ui's Card is used to display the site content meanly the apartments  in a card view*/ }
-            <Card.Group itemsPerRow="3" > {/*the number of items in each row is specified as 3*/}
-                {/*map() is used to loop all the houses in the database.*/ }
+            {/** semantic-ui's Card is used to display the site content meanly the apartments  in a card view */ }
+            <Card.Group itemsPerRow="3" > {/*the number of items in each row is specified as 3 */}
+                {/* map() is used to loop all the houses in the database.*/ }
             {table.map((item) =>
 
             (

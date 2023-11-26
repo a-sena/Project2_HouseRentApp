@@ -3,6 +3,14 @@ import { Collapse, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from '
 import { Link } from 'react-router-dom';
 import './NavMenu.css';
 
+/**
+ * NavMenu component creates a responsive navigation bar for the application.
+ * It includes links to navigate through the app and a toggler for collapsing the navbar on smaller screens.
+ * This component manages its collapsed state to toggle the visibility of the navigation items.
+ *
+ * @extends Component
+ * @property {boolean} collapsed - Indicates whether the navbar is collapsed or expanded.
+ */
 export class NavMenu extends Component {
   static displayName = NavMenu.name;
 
@@ -14,6 +22,9 @@ export class NavMenu extends Component {
       collapsed: true
     };
   }
+    /**
+    * Toggles the navbar's collapsed state, which controls the visibility of the navigation items.
+    */
 
   toggleNavbar () {
     this.setState({
