@@ -45,7 +45,7 @@ export default function Create() {
                 .catch((err) => {
                     //Error message is printed to the console
                     console.error("Error:", err);
-                    console.log("Error:", err);
+                    
                     // Error message is displayed to the user with toastify error
                     toast.error(`Error: ${err.message}`);
                 });
