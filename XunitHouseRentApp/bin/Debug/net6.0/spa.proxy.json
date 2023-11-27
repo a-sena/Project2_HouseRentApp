@@ -1,0 +1,8 @@
+{
+"SpaProxyServer": {
+"ServerUrl": "https://localhost:44431",
+"LaunchCommand": "npm start",
+"WorkingDirectory": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/Project2_HouseRentApp/ClientApp/",
+"MaxTimeoutInSeconds": "120"
+}
+}
