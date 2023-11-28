@@ -16,7 +16,8 @@ This repository contains the project for ITPE3200 Web Applications Part 2, Group
 - **Frontend**: Theo, Sena
 - **Backend**: Solin
 - **Testing**: Ahmet
-- **Documentation report, .gitignore, License, Readme**: Sirin 
+- **Documentation** *: Sirin 
+* This includes: [API documentation using JSDoc](https://github.com/a-sena/Project2_HouseRentApp/tree/master/Project2_HouseRentApp/ClientApp/docs), Project report, .gitignore, License, Readme.md
 
 ## Project Description
 This project is a continuation of Group Project 1, utilizing the same back-end built with .NET Core (6.0 or later). The front-end is developed using the JS library React. The application supports CRUD operations for at least one entity and includes a user-friendly interface with interactive forms.
