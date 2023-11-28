@@ -29,9 +29,9 @@ This project is a continuation of Group Project 1, utilizing the same back-end b
 - Comprehensive documentation explaining project architecture and functionality
 
 ### Prerequisites
-- .NET Core 6.0 or later
-- Node.js [Version XXX]
-- Angular [Version XXX] / React [Version XXX]
+- Front-end: React version 18.2.0  + Node.js versions >=10
+- Back-end: Asp.NET Core 6.0 MVC + EF Core
+- Reuse of back-end from Part 1.
 
 ## Usage
 - Run the application and access the it via `http://localhost:[Port]`
