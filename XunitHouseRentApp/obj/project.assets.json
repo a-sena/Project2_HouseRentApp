@@ -13720,19 +13720,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\aysen\\.nuget\\packages\\": {}
+    "C:\\Users\\sirin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
+      "projectUniqueName": "C:\\Users\\sirin\\Source\\Repos\\Project2_HouseRentApp\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
       "projectName": "XunitHouseRentApp",
-      "projectPath": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
-      "packagesPath": "C:\\Users\\aysen\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\XunitHouseRentApp\\obj\\",
+      "projectPath": "C:\\Users\\sirin\\Source\\Repos\\Project2_HouseRentApp\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
+      "packagesPath": "C:\\Users\\sirin\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\sirin\\Source\\Repos\\Project2_HouseRentApp\\XunitHouseRentApp\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\aysen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\sirin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13740,14 +13745,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\Project2_HouseRentApp\\HouseRentApp.csproj": {
-              "projectPath": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\Project2_HouseRentApp\\HouseRentApp.csproj"
+            "C:\\Users\\sirin\\Source\\Repos\\Project2_HouseRentApp\\Project2_HouseRentApp\\HouseRentApp.csproj": {
+              "projectPath": "C:\\Users\\sirin\\Source\\Repos\\Project2_HouseRentApp\\Project2_HouseRentApp\\HouseRentApp.csproj"
             }
           }
         }
@@ -13803,7 +13809,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
       }
     }
   }
