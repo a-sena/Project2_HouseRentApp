@@ -18,12 +18,12 @@ namespace HouseRentApp.AppDB
                     new Apartment
                     {
                         Name ="Beautiful central apartment",
-                        Price = 1200,
+                        Price = 2000,
                         Adress = "Gamle Oslo,Oslo,Norway",
                         NumOfRooms = 3,
 
-                        FirstRentalDate = "11.11.2023",
-                        Square= 84,
+                        FirstRentalDate = "11.12.2023",
+                        Square= 150,
                         //Used source for description: Entire condo hosted by Christopher, Airbnb
                         //Source:https://www.airbnb.com/rooms/48674713?adults=1&category_tag=Tag%3A8536&children=0&enable_m3_private_room=true&infants=0&pets=0&photo_id=1146833692&search_mode=flex_destinations_search&check_in=2024-01-15&check_out=2024-01-21&source_impression_id=p3_1697727377_s%2BnLMlWPIIXYjT20&previous_page_section_name=1000&federated_search_id=a7361505-c3c4-4b5f-a69d-90de1b82b2ae
                         Description ="Brilliant and lavish 4-bedroom penthouse apartment with stunning private rooftop terrace of 78 sqm. The apartment has a good floor plan and a number of good qualities such as.\r\nTwo bathrooms, two balconies, a stake oak parquet floor, two refrigerators, and a small wine cabinet. Pergola of 21 sqm. and jacuzzi on roof terrace.\r\nFrom the roof terrace there are panoramic views over the Oslo fjord and towards Oslo city centre area.\r\n3 bedrooms. Two of them have a double bed and a children's room with a bed.",
@@ -37,9 +37,9 @@ namespace HouseRentApp.AppDB
                         Name ="Modern Apartment",
                         Price = 1200,
                         Adress = "Søndre Nordstrand, Oslo, Norway",
-                        NumOfRooms = 1,
+                        NumOfRooms = 4,
 
-                        FirstRentalDate = "31.10.2023",
+                        FirstRentalDate = "31.12.2023",
                         Square= 74,
                         //Used source for description:Entire condo hosted by Anna,Airbnb
                         //Link : https://www.airbnb.com/rooms/678736544805985877?adults=1&category_tag=Tag%3A8536&children=0&enable_m3_private_room=true&infants=0&pets=0&search_mode=flex_destinations_search&check_in=2023-11-06&check_out=2023-11-11&source_impression_id=p3_1697724988_4Kr%2B4%2BOicYWwMf36&previous_page_section_name=1000
@@ -54,10 +54,10 @@ namespace HouseRentApp.AppDB
                         Name ="Stylish Apartment",
                         Price = 1500,
                         Adress = "Stabekk, Oslo, Norway",
-                        NumOfRooms = 1,
+                        NumOfRooms = 2,
 
                         FirstRentalDate = "11.12.2023",
-                        Square= 24,
+                        Square= 60,
                         //Used source for description: Entire condo hosted by Morten, Airbnb
                         //Link: https://www.airbnb.com/rooms/899282881983430496?adults=1&category_tag=Tag%3A8536&children=0&enable_m3_private_room=true&infants=0&pets=0&photo_id=1667326550&search_mode=flex_destinations_search&check_in=2023-11-12&check_out=2023-11-17&source_impression_id=p3_1697727377_Kqs5Z5rfL1XYZ3PI&previous_page_section_name=1000&federated_search_id=a7361505-c3c4-4b5f-a69d-90de1b82b2ae
                         Description ="Unique home in the coziest street of Oslo. Child-friendly and inclusive. Short way to the centre, cafes and restaurants. Lovely secluded outdoor area with barbecue and lounge atmosphere. When to enjoy Oslo this is a perfect starting point",
@@ -69,11 +69,11 @@ namespace HouseRentApp.AppDB
                     new Apartment
                     {
                         Name ="Best Apartment in Oslo",
-                        Price = 1200,
+                        Price = 3200,
                         Adress = "Ullern, Oslo,Norway",
 
-                        Square= 24,
-                        NumOfRooms = 1,
+                        Square= 100,
+                        NumOfRooms = 5,
                         FirstRentalDate = "01.12.2023",
                         //Used source for description: Entire rental unit hosted by Jon-Miguel, Airbnb
                         //Link: https://www.airbnb.com/rooms/17553046?adults=1&category_tag=Tag%3A8536&children=0&enable_m3_private_room=true&infants=0&pets=0&photo_id=287698843&search_mode=flex_destinations_search&check_in=2023-11-03&check_out=2023-11-08&source_impression_id=p3_1697727736_7a5iQQajaYB1D6XA&previous_page_section_name=1000
