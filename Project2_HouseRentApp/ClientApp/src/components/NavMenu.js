@@ -47,10 +47,6 @@ export class NavMenu extends Component {
                             <NavItem>
                                 <NavLink tag={Link} className="text-dark" to="/create">Publish A Post</NavLink>
                             </NavItem>
-
-                            <NavItem>
-                                <NavLink tag={Link} className="text-dark" to="../ClientApp/docs/index.html">Documentation</NavLink>
-                            </NavItem>
                         </ul>
                     </Collapse>
                 </Navbar>
