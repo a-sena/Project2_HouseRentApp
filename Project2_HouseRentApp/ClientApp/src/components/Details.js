@@ -5,6 +5,16 @@ import { Image, Icon } from 'semantic-ui-react';
 import { Carousel } from 'react-responsive-carousel';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+/**
+ * The `Details` component fetches and displays the detailed information of a specific apartment.
+ * It uses the `useParams` hook to retrieve the apartment ID from the URL, which is then used
+ * to make an API call to fetch the apartment's details. It displays a carousel of images of the apartment
+ * and various details like address, description, size, price, number of rooms, and the first rental date.
+ *
+ * @component
+ * @returns {React.ReactElement} The Details component with apartment details and images.
+ */
 export function Details() {
     //useParams is used to access id parameter from the URL
     const { id } = useParams()

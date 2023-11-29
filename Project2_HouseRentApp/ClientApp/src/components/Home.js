@@ -61,7 +61,7 @@ export function Home() {
     }
     return (
         <div>
-            <h1>Explore and manage your property listings easily with HouseRent App.</h1>
+            <h1>Explore and manage your property listings easily with HouseRentApp.</h1>
             <h3> <i> Your number one destination for rental postings! </i></h3>
 
             {/*"Create" button*/}
