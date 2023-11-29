@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Serilog;
 using Microsoft.AspNetCore.Identity;
 using HouseRentApp.AppDB;
-using Microsoft.AspNetCore.Mvc;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -97,57 +97,14 @@ app.MapRazorPages();
 
 
 
-//Seeding som Roles
-
-using (var scope = app.Services.CreateScope())
-{
-
-    var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
-
-    //Role Arrays
-    var roles = new[] { "Admin", "User" };
-    foreach (var role in roles)
-    {
-        //if we do not have any roles in the system we will create them 
-        if (!await roleManager.RoleExistsAsync(role))
-        {
-            await roleManager.CreateAsync(new IdentityRole(role));
-        }
-    }
-
-
-
-}
-//Adding Users to Roles
-using (var scope = app.Services.CreateScope())
-{
-
-    var userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
-
-    string email = "admin@admin.com";
-    string password = "Pa$$w0rd";
-
-    //seeding Admin
-    if (await userManager.FindByEmailAsync(email) == null)
-    {
-        var user = new IdentityUser
-        {
-            UserName = email,
-            Email = email,
-        };
-
-        await userManager.CreateAsync(user, password);
-
-        //assign the Admin to AdminRole
-        await userManager.AddToRoleAsync(user, "Admin");
-
-    }
 
 
 
 
 
-}
+
+
+
 
 
 app.Run();

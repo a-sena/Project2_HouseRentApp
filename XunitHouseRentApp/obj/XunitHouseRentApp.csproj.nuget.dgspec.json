@@ -1,26 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ahmetokur/Desktop/Project2_HouseRentApp/XunitHouseRentApp/XunitHouseRentApp.csproj": {}
+    "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\XunitHouseRentApp.csproj": {}
   },
   "projects": {
-    "/Users/ahmetokur/Desktop/Project2_HouseRentApp/Project2_HouseRentApp/HouseRentApp.csproj": {
+    "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\HouseRentApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/Project2_HouseRentApp/HouseRentApp.csproj",
+        "projectUniqueName": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\HouseRentApp.csproj",
         "projectName": "HouseRentApp",
-        "projectPath": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/Project2_HouseRentApp/HouseRentApp.csproj",
-        "packagesPath": "/Users/ahmetokur/.nuget/packages/",
-        "outputPath": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/Project2_HouseRentApp/obj/",
+        "projectPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\HouseRentApp.csproj",
+        "packagesPath": "C:\\Users\\Eier\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/ahmetokur/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Eier\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/sdk/7.0.311/Sdks/Microsoft.NET.Sdk.Web/library-packs": {},
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -105,34 +106,36 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "/Users/ahmetokur/Desktop/Project2_HouseRentApp/XunitHouseRentApp/XunitHouseRentApp.csproj": {
+    "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\XunitHouseRentApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/XunitHouseRentApp/XunitHouseRentApp.csproj",
+        "projectUniqueName": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
         "projectName": "XunitHouseRentApp",
-        "projectPath": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/XunitHouseRentApp/XunitHouseRentApp.csproj",
-        "packagesPath": "/Users/ahmetokur/.nuget/packages/",
-        "outputPath": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/XunitHouseRentApp/obj/",
+        "projectPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
+        "packagesPath": "C:\\Users\\Eier\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/ahmetokur/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Eier\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "/Users/ahmetokur/Desktop/Project2_HouseRentApp/Project2_HouseRentApp/HouseRentApp.csproj": {
-                "projectPath": "/Users/ahmetokur/Desktop/Project2_HouseRentApp/Project2_HouseRentApp/HouseRentApp.csproj"
+              "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\HouseRentApp.csproj": {
+                "projectPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\HouseRentApp.csproj"
               }
             }
           }
@@ -188,7 +191,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.311/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
