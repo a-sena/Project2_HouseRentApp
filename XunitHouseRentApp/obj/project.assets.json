@@ -13720,19 +13720,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Eier\\.nuget\\packages\\": {}
+    "C:\\Users\\aysen\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
+      "projectUniqueName": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
       "projectName": "XunitHouseRentApp",
-      "projectPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
-      "packagesPath": "C:\\Users\\Eier\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\XunitHouseRentApp\\obj\\",
+      "projectPath": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\XunitHouseRentApp\\XunitHouseRentApp.csproj",
+      "packagesPath": "C:\\Users\\aysen\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\XunitHouseRentApp\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Eier\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\aysen\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -13746,8 +13746,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\HouseRentApp.csproj": {
-              "projectPath": "C:\\Users\\Eier\\Source\\Repos\\Project2_HouseRentAppee\\Project2_HouseRentApp\\HouseRentApp.csproj"
+            "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\Project2_HouseRentApp\\HouseRentApp.csproj": {
+              "projectPath": "C:\\Users\\aysen\\Desktop\\Project2_HouseRentApp\\Project2_HouseRentApp\\HouseRentApp.csproj"
             }
           }
         }
@@ -13803,7 +13803,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }
