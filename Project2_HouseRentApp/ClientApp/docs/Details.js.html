@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Details.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Details.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>﻿import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from "react-router-dom";
+import { Image, Icon } from 'semantic-ui-react';
+import { Carousel } from 'react-responsive-carousel';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+/**
+ * The `Details` component fetches and displays the detailed information of a specific apartment.
+ * It uses the `useParams` hook to retrieve the apartment ID from the URL, which is then used
+ * to make an API call to fetch the apartment's details. It displays a carousel of images of the apartment
+ * and various details like address, description, size, price, number of rooms, and the first rental date.
+ *
+ * @component
+ * @returns {React.ReactElement} The Details component with apartment details and images.
+ */
+export function Details() {
+    //useParams is used to access id parameter from the URL
+    const { id } = useParams()
+  
+    //details, setDetails are to insert data into
+    //the "details"holds the current value of the state
+    //the initial value of details is specified as empty
+    //the "setDetails" is a function to update the current state 
+    const [details, setDetails] = useState({});
+
+    useEffect(() => {
+        //axious http get call
+        axios.get("https://localhost:5001/Apartment/" + id)
+            .then(res => setDetails(res.data))
+            //If an error is encountered, the catch block is executed
+            .catch((err) => {
+              //Error message is printed to the console
+                console.log("Error:", err);
+                // Error message is displayed to the user with toastify error
+                toast.error(`Error: ${err.message}`);
+            });
+    }, [id]);
+
+    return (
+        &lt;div style={{ display: 'flex' }}>
+            &lt;div style={{ width: '50%', float: 'left' }}>
+            {/*react-responsive-carousel hook is used to create slide show with pictures of apartment*/}
+            {/*Used source for Carousel: https://medium.com/@isabellepino/package-for-react-carousel-31aac8b1f090  */ }
+        &lt;Carousel >
+
+            &lt;div >
+                &lt;Image src={details.imageUrl1} />
+                &lt;p className="legend">Picture of House&lt;/p>
+            &lt;/div>
+            &lt;div>
+                &lt;Image src={details.imageUrl2} />
+                &lt;p className="legend">Living Room&lt;/p>
+            &lt;/div>
+            &lt;div>
+                &lt;Image src={details.imageUrl3} />
+                &lt;p className="legend">Kitchen&lt;/p>
+            &lt;/div>
+            &lt;div>
+                &lt;Image src={details.imageUrl4}  />
+                &lt;p className="legend">Restroom&lt;/p>
+            &lt;/div>
+
+            &lt;/Carousel>
+        &lt;/div>
+            &lt;div style={{ width: '50%', float: 'left', padding: '20px' }}>
+                &lt;h1 style={{ textAlign: 'left', marginBottom: '0' }}>{details.name}&lt;/h1>
+
+                &lt;p style={{ textAlign: 'left', marginBottom: '10px', marginTop: '0', fontStyle: 'italic' }}>{details.adress}&lt;/p>
+
+                &lt;p style={{ marginBottom: '30px', marginTop: '10px',fontSize: '16px'  }} >{details.description}&lt;/p>
+                &lt;div className="row">
+                    &lt;div className="col-4">
+                        &lt;Icon name="home" />
+                        &lt;span style={{ fontSize: '20px' }}>{details.square} m&amp;sup2;&lt;/span>
+                    &lt;/div>
+                    &lt;div className="col">
+                        &lt;Icon name="dollar sign" />
+                        &lt;span style={{ fontSize: '20px' }}>{details.price}&lt;/span>
+                    &lt;/div>
+                    &lt;/div>
+                &lt;div className="row">
+                    &lt;div className="col-4">
+                        &lt;Icon name="bed" />
+                        &lt;span style={{ fontSize: '20px' }}>{details.numOfRooms}&lt;/span>
+                    &lt;/div>
+                    &lt;div className="col">
+                        &lt;Icon name="calendar" />
+                        &lt;span style={{ fontSize: '20px' }}>{details.firstRentalDate}&lt;/span>
+                    &lt;/div>
+&lt;/div>
+            &lt;/div>
+        &lt;/div>
+    );
+
+}
+export default Details;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Layout.html">Layout</a></li><li><a href="NavMenu.html">NavMenu</a></li></ul><h3>Global</h3><ul><li><a href="global.html#Delete">Delete</a></li><li><a href="global.html#Details">Details</a></li><li><a href="global.html#Home">Home</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.2</a> on Wed Nov 29 2023 21:37:53 GMT+0100 (sentraleuropeisk normaltid)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
